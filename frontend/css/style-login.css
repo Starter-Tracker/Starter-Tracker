@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('../images/login-imagens/fundo-login.png');
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    background-position: center; /* Centraliza a imagem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login .container-form-login {
+    background-color: #ffffff; /* Cor do container */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box; /* Inclui padding no cálculo do tamanho */
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form input {
+    width: calc(100% - 20px); /* Reduz largura para evitar encostar nas bordas */
+    padding: 10px;
+    margin: 10px auto; /* Espaçamento vertical */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box; /* Inclui padding no cálculo do tamanho */
+}
+form .forgot-password {
+    display: block;
+    text-align: right; /* Alinha o texto à direita */
+    margin-top: -10px; /* Ajusta a posição vertical */
+    margin-bottom: 10px; /* Espaçamento inferior */
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form .forgot-password:hover {
+    color: #0056b3; /* Cor no hover */
+}
+
+form button {
+    width: 80%;
+    padding: 10px;
+    background: linear-gradient(90deg, #009349, #00CC66); /* Gradiente horizontal */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin: 10px auto; /* Espaçamento vertical */
+    box-sizing: border-box; /* Inclui padding no cálculo do tamanho */
+}
+
+form button:hover {
+    background: linear-gradient(90deg, #007a3a, #00a653); /* Gradiente mais escuro no hover */
+}
+
+div .social-login {
+    display: flex;
+    justify-content: space-evenly; /* Espaçamento entre os botões */
+    margin-top: 20px; /* Espaçamento superior */
+}
+
+p {
+    margin-top: 15px;
+    color: #555;
+}
+
+p a {
+    color: #00CC66;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
