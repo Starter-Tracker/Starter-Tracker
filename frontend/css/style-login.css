@@ -1,3 +1,4 @@
+/* Estilo geral */
 body {
     margin: 0;
     padding: 0;
@@ -12,7 +13,8 @@ body {
     height: 100vh;
 }
 
-.login .container-form-login {
+/* Container principal */
+.container-form-login {
     background-color: #ffffff; /* Cor do container */
     padding: 20px; /* Espaçamento interno */
     border-radius: 15px;
@@ -23,37 +25,68 @@ body {
     box-sizing: border-box; /* Inclui padding no cálculo do tamanho */
 }
 
-h1 {
+/* Título do formulário */
+.login-title {
     margin-bottom: 20px;
     color: #333;
 }
 
-form input {
-    width: calc(100% - 20px); /* Reduz largura para evitar encostar nas bordas */
+/* Campos de entrada */
+.form-group {
+    position: relative; /* Para posicionar o ícone dentro do campo */
+    margin-bottom: 15px; /* Espaçamento entre os campos */
+}
+
+.password-input {
+    width: 100%; /* Faz o campo ocupar toda a largura do contêiner */
+    padding-right: 40px; /* Espaço para o botão de alternar senha */
+}
+
+.toggle-password {
+    position: absolute; /* Posiciona o botão dentro do contêiner */
+    right: 10px; /* Alinha o botão à direita */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajusta o alinhamento vertical */
+    background: none; /* Remove o fundo do botão */
+    border: none; /* Remove a borda do botão */
+    cursor: pointer; /* Mostra o cursor de clique */
+    padding: 0; /* Remove o padding */
+}
+
+.eye-icon {
+    width: 20px; /* Define o tamanho do ícone */
+    height: 20px;
+}
+
+.form-input {
+    width: 100%; /* Faz o campo ocupar toda a largura do contêiner */
     padding: 10px;
-    margin: 10px auto; /* Espaçamento vertical */
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     box-sizing: border-box; /* Inclui padding no cálculo do tamanho */
 }
-form .forgot-password {
-    display: block;
+
+/* Link "Esqueceu a senha?" */
+.forgot-password {
     text-align: right; /* Alinha o texto à direita */
-    margin-top: -10px; /* Ajusta a posição vertical */
-    margin-bottom: 10px; /* Espaçamento inferior */
-    font-size: 14px;
-    color: #007bff;
-    text-decoration: none;
-    cursor: pointer;
+    margin-top: -5px; /* Aproxima do campo de senha */
+    margin-bottom: 10px; /* Ajusta o espaçamento inferior */
 }
 
-form .forgot-password:hover {
-    color: #0056b3; /* Cor no hover */
+.forgot-password-link {
+    font-size: 12px; /* Reduz o tamanho da fonte */
+    color: #00CC66; /* Cor do texto */
+    text-decoration: none; /* Remove o sublinhado */
 }
 
-form button {
-    width: 80%;
+.forgot-password-link:hover {
+    color: #007a3a; /* Cor no hover */
+}
+
+/* Botão de envio */
+.form-button {
+    width: 100%;
     padding: 10px;
     background: linear-gradient(90deg, #009349, #00CC66); /* Gradiente horizontal */
     color: #fff;
@@ -62,30 +95,46 @@ form button {
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s ease;
-    margin: 10px auto; /* Espaçamento vertical */
-    box-sizing: border-box; /* Inclui padding no cálculo do tamanho */
 }
 
-form button:hover {
+.form-button:hover {
     background: linear-gradient(90deg, #007a3a, #00a653); /* Gradiente mais escuro no hover */
 }
 
-div .social-login {
+/* Texto de login social */
+.social-login-text {
+    margin-top: 15px;
+    color: #555;
+}
+
+/* Login social */
+.social-login {
     display: flex;
     justify-content: space-evenly; /* Espaçamento entre os botões */
     margin-top: 20px; /* Espaçamento superior */
 }
 
-p {
+.social-login-link {
+    display: inline-block;
+}
+
+.social-login-icon {
+    width: 30px;
+    height: 30px;
+}
+
+/* Texto de registro */
+.register-text {
     margin-top: 15px;
     color: #555;
 }
 
-p a {
+.register-link {
     color: #00CC66;
     text-decoration: none;
 }
 
-p a:hover {
+.register-link:hover {
     text-decoration: underline;
+    color: #007a3a; /* Cor no hover */
 }
