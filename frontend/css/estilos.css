@@ -1,76 +1,30 @@
-h1 {
-    text-align: left;
-    font-size: 3rem; /* Ajuste o tamanho conforme necessário */
-}
-nav {
-    background-color: #b0acac;
-    padding: 10px;
+/* Define o fundo leitoso para a página */
+body {
+    background-color: #f8f5f2; /* Tom leitoso entre branco e bege */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove espaçamento padrão */
 }
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+/* Define o fundo leitoso até abaixo da imagem */
+.section-leitosa {
+    background-color: #f8f5f2; /* Tom leitoso */
+    padding-bottom: 50px; /* Espaçamento abaixo da imagem */
 }
 
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-nav ul li {
-    text-align: left; /* Alinha o texto à esquerda */
-}
-
-.botao-container {
-    background-color: #333; /* Cor preta para contraste */
-    padding: 10px 20px; /* Espaçamento interno ao redor do botão */
-    display: inline-block; /* Restringe a largura ao conteúdo */
-    border-radius: 5px; /* Bordas arredondadas para um visual mais agradável */
-    margin: 20px auto; /* Centraliza o botão horizontalmente */
-    text-align: center; /* Garante que o botão fique centralizado dentro da barra */
-}
-.botao-container button {
-    background-color: white; /* Cor do botão */
-    color: black; /* Cor do texto do botão */
-    border: none; /* Remove bordas padrão */
-    padding: 10px 20px; /* Ajusta o tamanho do botão */
-    font-size: 1rem; /* Tamanho da fonte */
-    cursor: pointer; /* Mostra o cursor de clique */
-    border-radius: 5px; /* Bordas arredondadas */
-}
-.botao-container button:hover {
-    background-color: #f0f0f0; /* Cor de fundo ao passar o mouse */
-}
-
-```css
-.logo-placeholder {
-    width: 100px; /* Largura reservada para a logo */
-    height: 50px; /* Altura reservada para a logo */
-    background-color: #ccc; /* Cor de fundo temporária para visualização */
-    margin-right: 20px; /* Espaçamento entre a logo e o menu */
-    display: inline-block; /* Garante que fique ao lado do menu */
-}
-.main-nav {
-    display: flex; /* Alinha a logo e o menu horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    padding: 10px; /* Espaçamento interno */
-}
-
-.logo-img {
-    width: 50px; /* Ajuste a largura conforme necessário */
-    height: auto; /* Mantém a proporção da imagem */
+/* Estilo da navbar */
+.navbar {
+    position: fixed; /* Fixa a barra no topo da página */
+    top: 0; /* Alinha no topo */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Faz a barra ocupar toda a largura da página */
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco translúcido */
+    backdrop-filter: blur(10px); /* Adiciona desfoque ao fundo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
+    z-index: 1000; /* Garante que a barra fique acima de outros elementos */
+    display: flex; /* Alinha os itens horizontalmente */
+    justify-content: space-between; /* Espaça os itens */
+    align-items: center; /* Centraliza os itens verticalmente */
+    padding: 10px 20px; /* Espaçamento interno */
 }
 
 /* Estiliza o container da logo */
@@ -80,18 +34,26 @@ nav ul li {
     gap: 10px; /* Espaçamento entre a imagem e o texto */
 }
 
+/* Estiliza a imagem da logo */
+.logo-img {
+    width: 50px; /* Ajuste a largura conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
 /* Estiliza o texto "Start Tracking" */
 .logo-text {
+    font-family: GeistSans, GeistSans Fallback;
     font-size: 1.2rem; /* Ajuste o tamanho da fonte */
-    color: white; /* Cor do texto */
+    color: black; /* Cor do texto */
     font-weight: bold; /* Deixa o texto em negrito */
 }
 
 /* Centraliza os itens do menu */
 .nav-list {
+    font-family: Arial, sans-serif; /* Define a fonte Arial */
+    font-weight: bold; /* Deixa o texto em negrito */
     display: flex; /* Alinha os itens horizontalmente */
     justify-content: center; /* Centraliza os itens no menu */
-    flex-grow: 1; /* Faz o menu ocupar o espaço restante */
     list-style: none; /* Remove os marcadores da lista */
     margin: 0;
     padding: 0;
@@ -100,6 +62,63 @@ nav ul li {
 /* Ajusta o espaçamento entre os itens do menu */
 .nav-item {
     margin: 0 15px;
+}
+
+/* Estiliza os links do menu */
+.nav-link {
+    color: black; /* Define a cor preta para os links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+.nav-link:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Estiliza os botões na navbar */
+.navbar-buttons .login-button {
+    background-color: transparent; /* Fundo transparente */
+    border: 1px solid black; /* Borda preta */
+    padding: 5px 10px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Mostra o cursor de clique */
+}
+
+.navbar-buttons .cta-button {
+    background: linear-gradient(90deg, #009349, #00cc66); /* Fundo preto */
+    color: white; /* Texto branco */
+    border: none; /* Remove borda */
+    padding: 5px 15px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Mostra o cursor de clique */
+}
+
+/* Estiliza a imagem central */
+.img-codando {
+    display: block; /* Faz a imagem se comportar como um bloco */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho do container */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+.action-button{
+    background: linear-gradient(90deg, #009349, #00cc66); /* Fundo preto */
+    color: white; /* Texto branco */
+    border: none; /* Remove borda */
+    padding: 5px 15px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Mostra o cursor de clique */
+    font-size: 1rem; /* Tamanho da fonte */
+    font-weight: bold; /* Deixa o texto em negrito */
+    text-transform: uppercase; /* Deixa o texto em maiúsculas (opcional) */
+}
+
+.action-button:hover {
+    background: linear-gradient(90deg, #007a3a, #00a653); 
+}
+
+.cta-button:hover {
+    background: linear-gradient(90deg, #007a3a, #00a653); /* Fundo mais escuro ao passar o mouse */
 }
 
 .main-title {
@@ -115,25 +134,10 @@ nav ul li {
     font-weight: bold; /* Deixa o texto em negrito */
     font-size: 1rem; /* Ajuste o tamanho conforme necessário */
     text-align: left; /* Centraliza o texto */
+    margin: 20px 0; /* Adiciona espaçamento ao redor */
 }
 
-.nav-link {
-    color: black; /* Define a cor preta para os links */
-    text-decoration: none; /* Remove o sublinhado dos links */
-    font-weight: bold; /* Deixa o texto em negrito (opcional) */
-}
-
-.nav-link:hover {
-    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse (opcional) */
-}
-
-.img-codando {
-    display: block; /* Faz a imagem se comportar como um bloco */
-    margin: 0 auto; /* Centraliza horizontalmente */
-    max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho do container */
-    height: auto; /* Mantém a proporção da imagem */
-}
-
+/* Estiliza o título do meio */
 .midle-title {
     font-family: Arial, sans-serif; /* Define a fonte Arial */
     font-weight: bold; /* Deixa o texto em negrito */
@@ -142,9 +146,161 @@ nav ul li {
     margin: 20px 0; /* Adiciona espaçamento ao redor */
 }
 
+/* Estiliza o subtítulo do meio */
 .midle-subtitle {
     font-family: Arial, sans-serif; /* Define a fonte Arial */
     font-weight: bold; /* Deixa o texto em negrito */
     font-size: 1rem; /* Ajuste o tamanho conforme necessário */
     text-align: center; /* Centraliza o texto */
+}
+
+/* Seção de destaques */
+.features-section {
+    display: flex; /* Alinha as caixas horizontalmente */
+    flex-wrap: wrap; /* Permite que as caixas quebrem linha em telas menores */
+    justify-content: center; /* Centraliza as caixas */
+    gap: 20px; /* Espaçamento entre as caixas */
+    padding: 40px 20px; /* Espaçamento interno da seção */
+    background-color: transparent; /* Remove o fundo leitoso */
+}
+
+/* Estilo das caixas */
+.feature-box {
+    background-color: white; /* Fundo branco */
+    border: 1px solid #ddd; /* Borda leve */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    padding: 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o conteúdo */
+    width: 250px; /* Largura fixa */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animação ao passar o mouse */
+}
+
+/* Ícones das caixas */
+.feature-icon {
+    width: 50px; /* Tamanho do ícone */
+    height: auto; /* Mantém a proporção */
+    margin-bottom: 15px; /* Espaçamento abaixo do ícone */
+}
+
+/* Títulos das caixas */
+.feature-title {
+    font-size: 1.2rem; /* Tamanho do título */
+    font-weight: bold; /* Negrito */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+    color: #333; /* Cor do texto */
+}
+
+/* Descrição das caixas */
+.feature-description {
+    font-size: 0.9rem; /* Tamanho do texto */
+    color: #666; /* Cor do texto */
+    line-height: 1.5; /* Altura da linha */
+}
+
+/* Efeito hover nas caixas */
+.feature-box:hover {
+    transform: translateY(-5px); /* Move a caixa levemente para cima */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Aumenta a sombra */
+}
+
+.section-branca {
+    background-color: white; /* Define o fundo branco */
+    padding: 40px 20px; /* Adiciona espaçamento interno */
+}
+
+@font-face {
+    font-family: 'GeistSans';
+    src: url('../fonts/GeistSans.ttf') format('truetype');
+}
+
+.logo-text {
+    font-family: 'GeistSans', Arial, sans-serif;
+    font-size: 1.2rem;
+    color: black;
+    font-weight: bold;
+}
+
+/* Estilo geral do footer */
+.footer {
+    background-color: white; /* Fundo branco */
+    padding: 40px 20px; /* Espaçamento interno */
+    border-top: 1px solid #ddd; /* Linha de separação no topo */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    color: #333; /* Cor do texto */
+}
+
+/* Container principal do footer */
+.footer-container {
+    display: flex; /* Alinha os itens horizontalmente */
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+    justify-content: space-between; /* Espaça os itens */
+    gap: 20px; /* Espaçamento entre as seções */
+}
+
+/* Seções do footer */
+.footer-section {
+    flex: 1; /* Faz as seções ocuparem o mesmo espaço */
+    min-width: 200px; /* Largura mínima para cada seção */
+}
+
+/* Logo e descrição */
+.footer-description {
+    font-size: 0.9rem; /* Tamanho do texto */
+    color: #666; /* Cor do texto */
+    margin-top: 10px; /* Espaçamento acima */
+}
+
+/* Títulos das seções */
+.footer-title {
+    font-size: 1rem; /* Tamanho do título */
+    font-weight: bold; /* Negrito */
+    margin-bottom: 10px; /* Espaçamento abaixo */
+}
+
+/* Links do footer */
+.footer-links {
+    list-style: none; /* Remove marcadores da lista */
+    padding: 0; /* Remove padding padrão */
+    margin: 0; /* Remove margens padrão */
+}
+
+.footer-link {
+    text-decoration: none; /* Remove sublinhado */
+    color: #333; /* Cor do link */
+    font-size: 0.9rem; /* Tamanho do texto */
+    margin-bottom: 5px; /* Espaçamento entre os links */
+    display: block; /* Faz os links ocuparem uma linha inteira */
+}
+
+.footer-link:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Linha de separação e direitos autorais */
+.footer-bottom {
+    margin-top: 20px; /* Espaçamento acima */
+    border-top: 1px solid #ddd; /* Linha de separação */
+    padding-top: 20px; /* Espaçamento interno acima */
+    display: flex; /* Alinha os itens horizontalmente */
+    justify-content: space-between; /* Espaça os itens */
+    align-items: center; /* Centraliza verticalmente */
+    font-size: 0.8rem; /* Tamanho do texto */
+    color: #666; /* Cor do texto */
+}
+
+/* Ícones sociais */
+.footer-socials {
+    display: flex; /* Alinha os ícones horizontalmente */
+    gap: 10px; /* Espaçamento entre os ícones */
+}
+
+.social-link img {
+    width: 20px; /* Tamanho dos ícones */
+    height: auto; /* Mantém a proporção */
+    cursor: pointer; /* Mostra o cursor de clique */
+}
+
+.social-link img:hover {
+    opacity: 0.7; /* Reduz a opacidade ao passar o mouse */
 }
