@@ -5,27 +5,58 @@ programador júnior dada a sua linguagem de interesse e seu objetivo, seja ele f
 meritocrático, satisfatório, prazeroso ou qualquer outro.
 -->
 
-<!-- Primeiramente, vamos informar ao navegador qual versão do html vamos usar:-->
+<!-- 
+Primeiramente, vamos informar ao navegador qual versão do html vamos usar:
+-->
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/estilos.css">
-        <title>Start Tracking</title>
-    </head>
-        <body>
-            <nav>
-                <ul>
-                    <li><a href="#Start Tracking">Home</a></li>
-                    <li><a href="#Recursos">Sobre</a></li>
-                    <li><a href="#Como funciona">Serviços</a></li>
-                    <li><a href="#Trilhas">Contato</a></li>
-                    <li><a href="#Depoimentos">Depoimentos</a></li>
-                </ul>
-            </nav>
-            <h1>
-                Start Tracking
-            </h1>
-        </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Definindo o padrão do conjunto de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta a perspectiva para dispositivos -->
+    <link rel="stylesheet" href="../css/estilos.css"> <!-- Vincula o arquivo CSS -->
+    <title>Start Tracking</title>
+</head>
+<body>
+    <!-- Navegação principal -->
+    <nav class="main-nav">
+        <div class="logo-container">
+            <img src="bussola.png" alt="Logo" class="logo-img">
+            <span class="logo-text">Start Tracking</span>
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#Sobre" class="nav-link">Sobre</a></li>
+            <li class="nav-item"><a href="#Servicos" class="nav-link">Serviços</a></li>
+            <li class="nav-item"><a href="#Contato" class="nav-link">Contato</a></li>
+            <li class="nav-item"><a href="#Depoimentos" class="nav-link">Depoimentos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Cabeçalho principal -->
+    <header class="main-header">
+        <h1 class="main-title">
+            Trilhas personalizadas para <br> desenvolvedores aspirantes
+        </h1>
+        <h2 
+            class="main-subtitle">O caminho certo para se tornar um programador de sucesso!
+        </h2>
+    </header>
+
+    <!-- Botão de ação -->
+    <nav class="botao-container">
+        <button class="action-button" onclick="window.location.href='cadastro.html'">Iniciar minha trilha</button>
+        <button class="action-button" onclick="window.location.href='saiba-mais.html'">Saiba mais</button>
+    </nav>
+
+    <br><img src="codando.jpg" alt="Logo" class="img-codando">
+
+    <br><br><br><br>
+
+        <h1 class="midle-title">
+            Desenvolvimento para o seu crescimento <br> profissional
+        </h1>
+        <h2 
+            class="midle-subtitle">Nossa plataforma utiliza uma IA treinada a partir de uma base 
+            de dados com experiência de diversos programadores para garantir uma trilha eficaz
+        </h2>
+</body>
 </html>

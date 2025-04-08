@@ -1,8 +1,9 @@
 h1 {
-    text-align: center;
+    text-align: left;
+    font-size: 3rem; /* Ajuste o tamanho conforme necessário */
 }
 nav {
-    background-color: #333;
+    background-color: #b0acac;
     padding: 10px;
 }
 
@@ -19,11 +20,131 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-weight: bold;
 }
 
 nav ul li a:hover {
     text-decoration: underline;
+}
+
+nav ul li {
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.botao-container {
+    background-color: #333; /* Cor preta para contraste */
+    padding: 10px 20px; /* Espaçamento interno ao redor do botão */
+    display: inline-block; /* Restringe a largura ao conteúdo */
+    border-radius: 5px; /* Bordas arredondadas para um visual mais agradável */
+    margin: 20px auto; /* Centraliza o botão horizontalmente */
+    text-align: center; /* Garante que o botão fique centralizado dentro da barra */
+}
+.botao-container button {
+    background-color: white; /* Cor do botão */
+    color: black; /* Cor do texto do botão */
+    border: none; /* Remove bordas padrão */
+    padding: 10px 20px; /* Ajusta o tamanho do botão */
+    font-size: 1rem; /* Tamanho da fonte */
+    cursor: pointer; /* Mostra o cursor de clique */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+.botao-container button:hover {
+    background-color: #f0f0f0; /* Cor de fundo ao passar o mouse */
+}
+
+```css
+.logo-placeholder {
+    width: 100px; /* Largura reservada para a logo */
+    height: 50px; /* Altura reservada para a logo */
+    background-color: #ccc; /* Cor de fundo temporária para visualização */
+    margin-right: 20px; /* Espaçamento entre a logo e o menu */
+    display: inline-block; /* Garante que fique ao lado do menu */
+}
+.main-nav {
+    display: flex; /* Alinha a logo e o menu horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 10px; /* Espaçamento interno */
+}
+
+.logo-img {
+    width: 50px; /* Ajuste a largura conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+/* Estiliza o container da logo */
+.logo-container {
+    display: flex; /* Alinha a imagem e o texto horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 10px; /* Espaçamento entre a imagem e o texto */
+}
+
+/* Estiliza o texto "Start Tracking" */
+.logo-text {
+    font-size: 1.2rem; /* Ajuste o tamanho da fonte */
+    color: white; /* Cor do texto */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+/* Centraliza os itens do menu */
+.nav-list {
+    display: flex; /* Alinha os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens no menu */
+    flex-grow: 1; /* Faz o menu ocupar o espaço restante */
+    list-style: none; /* Remove os marcadores da lista */
+    margin: 0;
+    padding: 0;
+}
+
+/* Ajusta o espaçamento entre os itens do menu */
+.nav-item {
+    margin: 0 15px;
+}
+
+.main-title {
+    font-family: Arial, sans-serif; /* Define a fonte Arial */
+    font-weight: bold; /* Deixa o texto em negrito */
+    font-size: 3rem; /* Ajuste o tamanho conforme necessário */
+    text-align: left; /* Centraliza o texto */
+    margin: 20px 0; /* Adiciona espaçamento ao redor */
+}
+
+.main-subtitle {
+    font-family: Arial, sans-serif; /* Define a fonte Arial */
+    font-weight: bold; /* Deixa o texto em negrito */
+    font-size: 1rem; /* Ajuste o tamanho conforme necessário */
+    text-align: left; /* Centraliza o texto */
+}
+
+.nav-link {
+    color: black; /* Define a cor preta para os links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    font-weight: bold; /* Deixa o texto em negrito (opcional) */
+}
+
+.nav-link:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse (opcional) */
+}
+
+.img-codando {
+    display: block; /* Faz a imagem se comportar como um bloco */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho do container */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+.midle-title {
+    font-family: Arial, sans-serif; /* Define a fonte Arial */
+    font-weight: bold; /* Deixa o texto em negrito */
+    font-size: 3rem; /* Ajuste o tamanho conforme necessário */
+    text-align: center; /* Centraliza o texto */
+    margin: 20px 0; /* Adiciona espaçamento ao redor */
+}
+
+.midle-subtitle {
+    font-family: Arial, sans-serif; /* Define a fonte Arial */
+    font-weight: bold; /* Deixa o texto em negrito */
+    font-size: 1rem; /* Ajuste o tamanho conforme necessário */
+    text-align: center; /* Centraliza o texto */
 }
