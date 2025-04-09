@@ -36,6 +36,10 @@ body {
     position: relative; /* Para posicionar o ícone dentro do campo */
     margin-bottom: 15px; /* Espaçamento entre os campos */
 }
+.form-group input:focus {
+    border-color: #00CC66; /* Cor de foco */
+    outline: none; /* Remove o contorno padrão */
+}
 
 .password-input {
     width: 100%; /* Faz o campo ocupar toda a largura do contêiner */
@@ -56,6 +60,7 @@ body {
 .eye-icon {
     width: 20px; /* Define o tamanho do ícone */
     height: 20px;
+    opacity: 0.6; /* Define a opacidade do ícone */
 }
 
 .form-input {
@@ -110,7 +115,8 @@ body {
 /* Login social */
 .social-login {
     display: flex;
-    justify-content: space-evenly; /* Espaçamento entre os botões */
+    justify-content: center; /* Espaçamento entre os botões */
+    gap: 30px;
     margin-top: 20px; /* Espaçamento superior */
 }
 
@@ -127,6 +133,7 @@ body {
 .register-text {
     margin-top: 15px;
     color: #555;
+    font-size: 14px;
 }
 
 .register-link {

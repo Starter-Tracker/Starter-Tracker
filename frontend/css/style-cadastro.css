@@ -1,0 +1,149 @@
+body.body-cadastro {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/cadastro-imagens/fundo-cadastro.png'); /* Caminho para a imagem de fundo */
+    background-size: cover; /* Faz a imagem cobrir toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Garante que o fundo ocupe toda a altura da tela */
+}
+
+.cadastro-section {
+    background-color: #ffffff; /* Cor do container */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box; /* Inclui padding no cálculo do tamanho */
+}
+
+.cadastro-titulo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333; /* Cor do texto */
+    margin-bottom: 20px;
+}
+
+.cadastro-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cadastro-form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.cadastro-form input:focus {
+    border-color: #00CC66; /* Cor de foco */
+    outline: none;
+}
+
+.botao-cadastrar {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(90deg, #009349, #00CC66); /* Gradiente verde */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-cadastrar:hover {
+    background: linear-gradient(90deg, #007a3a, #00a653); /* Gradiente mais escuro no hover */
+}
+
+/* Texto de login social */
+.social-cadastro-text {
+    margin-top: 15px;
+    color: #555;
+}
+
+/* Login social */
+.social-cadastro {
+    display: flex;
+    justify-content: center; /* Centraliza os ícones */
+    gap: 20px; /* Aumenta o espaçamento entre os ícones */
+    margin-top: 10px; /* Espaçamento superior */
+}
+
+.social-cadastro-link {
+    display: inline-block;
+    width: 40px; /* Ajusta a largura do ícone */
+    height: 40px; /* Ajusta a altura do ícone */
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.social-cadastro-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.cadastro-login-link {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666666;
+    text-align: center;
+}
+
+.cadastro-login-link .link-login {
+    color: #00CC66; /* Cor do link */
+    text-decoration: none;
+}
+
+.cadastro-login-link .link-login:hover {
+    text-decoration: underline;
+}
+
+/* Container para os campos de senha */
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Campo de entrada */
+.input-senha,
+.input-confirmar-senha {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Botão de mostrar/ocultar senha */
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Ícone do botão */
+.eye-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
