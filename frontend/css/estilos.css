@@ -1,15 +1,22 @@
 /* Define o fundo leitoso para a página */
 body {
     background-color: #f8f5f2; /* Tom leitoso entre branco e bege */
+    height: 100%;
     margin: 0; /* Remove margens padrão */
     padding: 0; /* Remove espaçamento padrão */
+    display: flex; /* Ativa o flexbox */
+    flex-direction: column; /* Organiza o conteúdo em coluna */
+    min-height: 100vh; /* Garante que o body ocupe 100% da altura da tela */
+    margin: 0; /* Remove margens padrão */
 }
 
 /* Define o fundo leitoso até abaixo da imagem */
 .section-leitosa {
     background-color: #f8f5f2; /* Tom leitoso */
     padding-bottom: 50px; /* Espaçamento abaixo da imagem */
+    flex: 1;
 }
+
 
 /* Estilo da navbar */
 .navbar {
@@ -24,7 +31,7 @@ body {
     display: flex; /* Alinha os itens horizontalmente */
     justify-content: space-between; /* Espaça os itens */
     align-items: center; /* Centraliza os itens verticalmente */
-    padding: 10px 20px; /* Espaçamento interno */
+    padding: 1px 2px; /* Espaçamento interno */
 }
 
 /* Estiliza o container da logo */
@@ -82,6 +89,7 @@ body {
     padding: 5px 10px; /* Espaçamento interno */
     border-radius: 5px; /* Bordas arredondadas */
     cursor: pointer; /* Mostra o cursor de clique */
+    
 }
 
 .navbar-buttons .cta-button {
@@ -91,6 +99,7 @@ body {
     padding: 5px 15px; /* Espaçamento interno */
     border-radius: 5px; /* Bordas arredondadas */
     cursor: pointer; /* Mostra o cursor de clique */
+    margin-right: 20px;
 }
 
 /* Estiliza a imagem central */
@@ -127,6 +136,7 @@ body {
     font-size: 3rem; /* Ajuste o tamanho conforme necessário */
     text-align: left; /* Centraliza o texto */
     margin: 20px 0; /* Adiciona espaçamento ao redor */
+    margin-left: 20px;
 }
 
 .main-subtitle {
@@ -135,6 +145,12 @@ body {
     font-size: 1rem; /* Ajuste o tamanho conforme necessário */
     text-align: left; /* Centraliza o texto */
     margin: 20px 0; /* Adiciona espaçamento ao redor */
+    margin-left: 20px;
+}
+
+/* Adicionando margem aos botões de início de trilha:*/
+.botao-container {
+    margin-left: 20px;
 }
 
 /* Estiliza o título do meio */
@@ -228,6 +244,7 @@ body {
     border-top: 1px solid #ddd; /* Linha de separação no topo */
     font-family: Arial, sans-serif; /* Fonte padrão */
     color: #333; /* Cor do texto */
+    margin-bottom: auto;
 }
 
 /* Container principal do footer */
@@ -303,4 +320,15 @@ body {
 
 .social-link img:hover {
     opacity: 0.7; /* Reduz a opacidade ao passar o mouse */
+}
+
+.hidden {
+    opacity: 0; /* Torna o elemento invisível */
+    transform: translateY(20px); /* Move o elemento levemente para baixo */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Animação suave */
+}
+
+.show {
+    opacity: 1; /* Torna o elemento visível */
+    transform: translateY(0); /* Move o elemento para a posição original */
 }
