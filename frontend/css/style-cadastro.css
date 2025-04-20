@@ -2,7 +2,7 @@ body.body-cadastro {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('../images/cadastro-imagens/fundo-cadastro.png'); /* Caminho para a imagem de fundo */
+    background-image: url('../images/cadastro-imagens/fundo-novo.png'); /* Caminho para a imagem de fundo */
     background-size: cover; /* Faz a imagem cobrir toda a tela */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita repetição da imagem */
@@ -10,6 +10,15 @@ body.body-cadastro {
     justify-content: center;
     align-items: center;
     height: 100vh; /* Garante que o fundo ocupe toda a altura da tela */
+}
+
+.logo-imagem {
+    position: absolute; /* Posiciona o botão de forma absoluta */
+    top: 10px; /* Define a distância do topo */
+    left: 50px; /* Define a distância da esquerda */
+    width: 20vh; /* Define a largura do botão */
+    height: 20vh; /* Mantém a proporção da altura */
+    cursor: pointer; /* Mostra o cursor de clique */
 }
 
 .cadastro-section {

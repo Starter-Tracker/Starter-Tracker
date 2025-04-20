@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url('../images/login-imagens/fundo-login.png');
+    background-image: url('../images/login-imagens/fundo-novo.png');
     background-size: cover; /* Faz a imagem cobrir toda a tela */
     background-repeat: no-repeat; /* Evita repetição da imagem */
     background-position: center; /* Centraliza a imagem */
@@ -11,6 +11,15 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+.logo-imagem {
+    position: absolute; /* Posiciona o botão de forma absoluta */
+    top: 10px; /* Define a distância do topo */
+    left: 50px; /* Define a distância da esquerda */
+    width: 20vh; /* Define a largura do botão */
+    height: 20vh; /* Mantém a proporção da altura */
+    cursor: pointer; /* Mostra o cursor de clique */
 }
 
 /* Container principal */
