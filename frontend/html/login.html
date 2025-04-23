@@ -1,3 +1,57 @@
-<!--
-Aba de login do dev júnior
--->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style-login.css">
+    <title>Login - Start Tracking</title>
+</head>
+<body>
+
+    <div class="botao-logo">
+        <a href="index.html" class="logo-link">
+            <img src="../images/login-imagens/logo-botao.png" alt="Logo" class="logo-imagem">
+        </a>
+    </div>
+
+    <section class="login">
+        <div class="container-form-login">
+            <h1 class="login-title">Login</h1>
+            <form action="../backend/login.php" method="POST" class="login-form">
+                <div class="form-group">
+                    <input type="email" name="E-mail" placeholder="E-mail" class="form-input email-input" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="Senha" placeholder="Senha" class="form-input password-input" id="password" required>
+                    <button type="button" class="toggle-password" id="toggle-password">
+                        <img src="../images/login-imagens/olho-fechado.png" alt="Mostrar senha" class="eye-icon" id="eye-icon">
+                    </button>
+                </div>
+                <p class="forgot-password">
+                    <a href="forgot-password.html" class="forgot-password-link">Esqueceu a senha?</a>
+                </p>
+
+                <button type="submit" class="form-button">Entrar</button>
+
+                <p class="social-login-text">Login com:</p>
+                <div class="social-login">
+                    <a href="#" class="social-login-link">
+                        <img src="../images/login-imagens/google.png" alt="Google" class="social-login-icon">
+                    </a>
+                    <a href="#" class="social-login-link">
+                        <img src="../images/login-imagens/facebook.png" alt="Facebook" class="social-login-icon">
+                    </a>
+                    <a href="#" class="social-login-link">
+                        <img src="../images/login-imagens/twitter.png" alt="Twitter" class="social-login-icon">
+                    </a>
+                </div>
+            </form>
+            <p class="register-text">
+                Não possui uma conta? 
+                <a href="cadastro.html" class="register-link">Cadastre-se aqui!</a>
+            </p>
+        </div>
+    </section>
+    <script src="/Starter-Tracker/js/login.js"></script>
+</body>
+</html>
