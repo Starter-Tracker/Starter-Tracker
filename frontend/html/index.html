@@ -5,27 +5,151 @@ programador júnior dada a sua linguagem de interesse e seu objetivo, seja ele f
 meritocrático, satisfatório, prazeroso ou qualquer outro.
 -->
 
-<!-- Primeiramente, vamos informar ao navegador qual versão do html vamos usar:-->
+<!-- 
+Primeiramente, vamos informar ao navegador qual versão do html vamos usar:
+-->
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/estilos.css">
-        <title>Start Tracking</title>
-    </head>
-        <body>
-            <nav>
-                <ul>
-                    <li><a href="#Start Tracking">Home</a></li>
-                    <li><a href="#Recursos">Sobre</a></li>
-                    <li><a href="#Como funciona">Serviços</a></li>
-                    <li><a href="#Trilhas">Contato</a></li>
-                    <li><a href="#Depoimentos">Depoimentos</a></li>
-                </ul>
-            </nav>
-            <h1>
-                Start Tracking
-            </h1>
-        </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Definindo o padrão do conjunto de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta a perspectiva para dispositivos -->
+    <link rel="stylesheet" href="../css/estilos.css"> <!-- Vincula o arquivo CSS -->
+    <title>Start Tracking</title>
+</head>
+<body>
+    <div class="section-leitosa">
+    <!-- Navegação principal -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="../images/home-imagens/logo-start-2.png" alt="Logo" class="logo-img">
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#recursos" class="nav-link">Recursos</a></li>
+            <li class="nav-item"><a href="#como-funciona" class="nav-link">Como Funciona</a></li>
+            <li class="nav-item"><a href="#trilhas" class="nav-link">Trilhas</a></li>
+            <li class="nav-item"><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+        </ul>
+
+        <div class="navbar-buttons">
+            <button class="login-button" onclick="window.location.href='login.html'">Login</button>
+            <button class="cta-button" onclick="window.location.href='cadastro.html'">Cadastre-se</button>
+        </div>
+    </nav>
+
+    <!-- Cabeçalho principal -->
+        <h1 class="main-title">
+            <br><br>Trilhas personalizadas para <br> desenvolvedores aspirantes
+        </h1>
+        <h2 class="main-subtitle">
+            Utilizamos IA e machine learning para criar trilhas de <br> aprendizado personalizadas que transformam iniciantes em <br> desenvolvedores experientes e bem-sucedidos.
+        </h2>
+    
+
+    <!-- Botão de ação -->
+    <nav class="botao-container">
+        <button class="action-button" onclick="window.location.href='cadastro.html'">
+            <p class="text-botao1">Iniciar minha trilha</p>
+        </button>
+        <button class="action-button" onclick="window.location.href='sobre.html'">
+            <p class="texto-botao2">Saiba mais</p>
+        </button>
+    </nav>
+
+    <br><img src="../images/home-imagens/imagem-exemplo2.png" alt="Logo" class="img-codando">
+</div>
+    <br><br><br><br>
+    <div class="section-branca">
+        <h1 class="midle-title hidden">
+            Desenvolvimento para o seu crescimento <br> profissional
+        </h1>
+        <h2 class="midle-subtitle">
+            Nossa plataforma utiliza uma IA treinada a partir de uma base 
+            de dados com experiência de diversos programadores para garantir uma trilha eficaz
+        </h2>
+    
+        <div class="features-section">
+            <div class="feature-box">
+                <img src="../images/home-imagens/cerebro.png" alt="IA Avançada" class="feature-icon">
+                <h3 class="feature-title">IA Avançada</h3>
+                <p class="feature-description">Algoritmos que aprendem com seu progresso e adaptam seu caminho de aprendizado.</p>
+            </div>
+            <div class="feature-box">
+                <img src="../images/home-imagens/bussola2D.png" alt="Trilhas Personalizadas" class="feature-icon">
+                <h3 class="feature-title">Trilhas Personalizadas</h3>
+                <p class="feature-description">Caminhos de aprendizado adaptados ao seu nível, objetivos e estilo de aprendizado.</p>
+            </div>
+            <div class="feature-box">
+                <img src="../images/home-imagens/analise.png" alt="Análise de Progresso" class="feature-icon">
+                <h3 class="feature-title">Análise de Progresso</h3>
+                <p class="feature-description">Acompanhe seu desenvolvimento com métricas detalhadas e insights.</p>
+            </div>
+            <div class="feature-box">
+                <img src="../images/home-imagens/comunidade.png" alt="Comunidade Ativa" class="feature-icon">
+                <h3 class="feature-title">Comunidade Ativa</h3>
+                <p class="feature-description">Conecte-se com outros desenvolvedores em jornadas similares.</p>
+            </div>
+            <div class="feature-box">
+                <img src="../images/home-imagens/databank.png" alt="Base de Conhecimento" class="feature-icon">
+                <h3 class="feature-title">Base de Conhecimento</h3>
+                <p class="feature-description">Conteúdo curado e organizado por especialistas da indústria.</p>
+            </div>
+            <div class="feature-box">
+                <img src="../images/home-imagens/projetos.png" alt="Projetos Práticos" class="feature-icon">
+                <h3 class="feature-title">Projetos Práticos</h3>
+                <p class="feature-description">Aplique o conhecimento em projetos reais alinhados com o mercado.</p>
+            </div>
+        </div>
+    </div>
+    <script src="../js/efeitos.js"></script>
+</body>
+
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Logo e descrição -->
+        <div class="footer-section">
+            <div class="logo-container">
+                <img src="../images/home-imagens/logo-start-2.png" alt="Logo" class="logo-img">
+            </div>
+            <p class="footer-description">
+                Pavimentando caminhos <br> até o sucesso!
+            </p>
+        </div>
+
+        <!-- Links da plataforma -->
+        <div class="footer-section">
+            <h4 class="footer-title">Plataforma</h4>
+            <ul class="footer-links">
+                <li><a href="#recursos" class="footer-link">Recursos</a></li>
+                <li><a href="#trilhas" class="footer-link">Trilhas</a></li>
+                <li><a href="#comunidade" class="footer-link">Comunidade</a></li>
+                <li><a href="#precos" class="footer-link">Preços</a></li>
+            </ul>
+        </div>
+
+        <!-- Links da empresa -->
+        <div class="footer-section">
+            <h4 class="footer-title">Empresa</h4>
+            <ul class="footer-links">
+                <li><a href="#sobre-nos" class="footer-link">Sobre nós</a></li>
+                <li><a href="#blog" class="footer-link">Blog</a></li>
+                <li><a href="#carreiras" class="footer-link">Carreiras</a></li>
+                <li><a href="#contato" class="footer-link">Contato</a></li>
+            </ul>
+        </div>
+
+        <!-- Links legais -->
+        <div class="footer-section">
+            <h4 class="footer-title">Legal</h4>
+            <ul class="footer-links">
+                <li><a href="#termos" class="footer-link">Termos de Uso</a></li>
+                <li><a href="#privacidade" class="footer-link">Privacidade</a></li>
+                <li><a href="#cookies" class="footer-link">Cookies</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="direitos-autorais">
+        © 2025 Todos os direitos reservados.
+    </div>
+</footer>
+
 </html>

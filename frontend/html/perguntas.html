@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário Interativo</title>
+    <link rel="stylesheet" href="../css/style-perguntas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <main class="container">
+        <div class="questionnaire-layout">
+            <div class="robot-icon-container">
+                <i class="fas fa-robot robot-icon"></i>
+            </div>
+            
+            <div class="speech-bubble">
+                <div class="card" id="questionnaire-card">
+                    <div class="card-header">
+                        <h2>Questionário</h2>
+                        <span id="question-counter">Pergunta 1 de 14</span>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progress-bar"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="question-container">
+                            <h3 id="question-text">Carregando pergunta...</h3>
+                        </div>
+
+                        <div id="options-container" class="options-container">
+                            <!-- Options will be dynamically inserted here -->
+                        </div>
+
+                        <div id="number-input-container" class="number-input-container hidden">
+                            <input type="number" id="number-input" min="0" placeholder="Digite um número">
+                        </div>
+
+                        <div id="score-container" class="score-container hidden">
+                            <div class="score-circle">
+                                <span id="score-value">0%</span>
+                            </div>
+                            <p id="score-text">Este é seu score baseado nas respostas anteriores.</p>
+                        </div>
+                        
+                        <div id="validation-message" class="validation-message hidden">
+                            Por favor, selecione pelo menos uma opção para continuar.
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <button id="prev-btn" class="btn btn-outline" disabled>
+                            <i class="fas fa-arrow-left"></i> Anterior
+                        </button>
+                        <button id="next-btn" class="btn btn-primary">
+                            Próxima <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card hidden" id="completion-card">
+            <div class="card-header">
+                <h2>Questionário Concluído!</h2>
+            </div>
+            <div class="card-content completion-content">
+                <div class="completion-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <p class="completion-text">Obrigado por responder todas as perguntas do nosso questionário.</p>
+                <p class="completion-subtext">Suas respostas foram registradas com sucesso.</p>
+            </div>
+            <div class="card-footer">
+                <button id="restart-btn" class="btn btn-primary">
+                    Iniciar Novo Questionário
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,29 +1,371 @@
-h1 {
-    text-align: center;
-}
-nav {
-    background-color: #333;
-    padding: 10px;
+/* Define o fundo leitoso para a página */
+body {
+    background-color: #eeeeee; /* Cor de fundo leitoso */
+    height: 100%;
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove espaçamento padrão */
+    display: flex; /* Ativa o flexbox */
+    flex-direction: column; /* Organiza o conteúdo em coluna */
+    min-height: 100vh; /* Garante que o body ocupe 100% da altura da tela */
+    margin: 0; /* Remove margens padrão */
 }
 
-nav ul {
-    list-style-type: none;
+/* Define o fundo leitoso até abaixo da imagem */
+.section-leitosa {
+    background-color: #eeeeee; /* Fundo leitoso */
+    padding-bottom: 50px; /* Espaçamento abaixo da imagem */
+    flex: 1;
+}
+
+/* Estilo da navbar */
+.navbar {
+    position: fixed; /* Fixa a barra no topo da página */
+    top: 0; /* Alinha no topo */
+    left: 0; /* Alinha à esquerda */
+    height: 80px; /* Altura da barra */
+    width: 100%; /* Faz a barra ocupar toda a largura da página */
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco translúcido */
+    backdrop-filter: blur(10px); /* Adiciona desfoque ao fundo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
+    z-index: 1000; /* Garante que a barra fique acima de outros elementos */
+    display: flex; /* Alinha os itens horizontalmente */
+    justify-content: space-between; /* Espaça os itens */
+    align-items: center; /* Centraliza os itens verticalmente */
+    padding: 0px 20px; /* Espaçamento interno */
+}
+
+/* Estiliza o container dos botões na navbar */
+.navbar-buttons {
+    display: flex; /* Garante que os botões fiquem lado a lado */
+    gap: 10px; /* Adiciona espaçamento entre os botões */
+    align-items: center; /* Centraliza os botões verticalmente */
+}
+
+/* Estilo para o container da logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo para a logo */
+.logo-img {
+    height: 90px; /* Aumenta a altura da logo */
+    max-height: 100%; /* Garante que a logo não ultrapasse a altura da navbar */
+    width: auto; /* Mantém a proporção da imagem */
+    object-fit: contain; /* Garante que a imagem não distorça */
+    margin-left: 10px; /* Adiciona um pequeno espaçamento à esquerda */
+    margin-top: 10px; /* Adiciona um pequeno espaçamento acima */
+}
+
+/* Centraliza os itens do menu */
+.nav-list {
+    font-family: Arial, sans-serif; /* Define a fonte Arial */
+    display: flex; /* Alinha os itens horizontalmente */
+    justify-content: center; /* Centraliza os itens no menu */
+    list-style: none; /* Remove os marcadores da lista */
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
 }
 
-nav ul li {
-    margin: 0 15px;
+/* Ajusta o espaçamento entre os itens do menu */
+.nav-item {
+    margin: 0 40px;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
+/* Estiliza os links do menu */
+.nav-link {
+    color: black; /* Define a cor preta para os links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    font-weight: normal; /* Deixa o texto em negrito */
+    font-size: 0.9rem; /* Tamanho da fonte */
+}
+
+.nav-link:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Estiliza os botões na navbar */
+.navbar-buttons .login-button,
+.navbar-buttons .cta-button {
+    height: 40px; /* Define uma altura fixa para ambos os botões */
+    display: flex; /* Garante que o conteúdo interno seja flexível */
+    align-items: center; /* Centraliza o texto verticalmente */
+    justify-content: center; /* Centraliza o texto horizontalmente */
+    padding: 0 15px; /* Ajusta o espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    cursor: pointer; /* Mostra o cursor de clique */
+    box-sizing: border-box; /* Inclui padding e border no tamanho total do elemento */
+}
+
+/* Estilo específico para o botão de login */
+.navbar-buttons .login-button {
+    background-color: white; /* Fundo branco */
+    border: 1px solid black; /* Borda preta */
+    color: black; /* Cor do texto */
+}
+
+/* Estilo específico para o botão de cadastro */
+.navbar-buttons .cta-button {
+    background: linear-gradient(90deg, #009349, #00cc66); /* Fundo gradiente */
+    color: white; /* Texto branco */
+    margin-right: 60px; /* Espaçamento à direita */
+    border: none;
+}
+
+/* Estiliza a imagem central */
+.img-codando {
+    display: block; /* Faz a imagem se comportar como um bloco */
+    margin: auto; /* Centraliza horizontalmente */
+    max-width: 30%; /* Garante que a imagem não ultrapasse o tamanho do container */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-left: 720px; /* Adiciona margem à esquerda */
+    margin-top: -400px; /* Adiciona margem acima */
+}
+
+.action-button{
+    background: linear-gradient(90deg, #009349, #00cc66);
+    color: white; /* Texto branco */
+    border: none; /* Remove borda */
+    padding: 5px 15px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Mostra o cursor de clique */
+    font-size: 1rem; /* Tamanho da fonte */
+    font-weight: bold; /* Deixa o texto em negrito */
+    text-transform: uppercase; /* Deixa o texto em maiúsculas (opcional) */
+}
+
+.action-button:hover {
+    background: linear-gradient(90deg, #007a3a, #00a653); 
+}
+
+.cta-button:hover {
+    background: linear-gradient(90deg, #007a3a, #00a653); /* Fundo mais escuro ao passar o mouse */
+}
+
+.main-title {
+    font-family: Arial, sans-serif; /* Define a fonte Arial */
+    font-weight: bold; /* Deixa o texto em negrito */
+    font-size: 2.5rem; /* Ajuste o tamanho conforme necessário */
+    text-align: left; /* Centraliza o texto */
+    margin: 10px 0; /* Adiciona espaçamento ao redor */
+    margin-left: 35px;
+    margin-top: 160px;
+}
+
+.main-subtitle {
+    font-family: Arial, sans-serif; /* Define a fonte Arial */
+    font-weight: normal; /* Deixa o texto em negrito */
+    font-size: 1rem; /* Ajuste o tamanho conforme necessário */
+    text-align: left; /* Centraliza o texto */
+    margin: 10px 0; /* Adiciona espaçamento ao redor */
+    margin-left: 35px; /* Adiciona margem à esquerda */
+    color: #707070; /* Cor do texto */
+    line-height: 1.5; /* Altura da linha */
+}
+
+/* Adicionando margem aos botões de início de trilha:*/
+.botao-container {
+    margin-left: 32px;
+}
+
+/* Ajusta os botões dentro da botao-container */
+.botao-container .action-button {
+    background: linear-gradient(90deg, #009349, #00cc66); /* Fundo gradiente */
+    color: white; /* Texto branco */
+    border: none; /* Remove borda */
+    padding: 8px 12px; /* Reduz o espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Mostra o cursor de clique */
+    font-size: 0.8rem; /* Diminui o tamanho do texto */
+    font-weight: normal; /* Remove o negrito */
+    text-transform: none; /* Remove transformação de texto (opcional) */
+    margin: 3px; /* Adiciona espaçamento entre os botões */
+}
+
+/* Ajusta o texto dentro dos botões */
+.botao-container .action-button p {
+    margin: 0; /* Remove margens internas do texto */
+    font-size: 0.8rem; /* Diminui o tamanho do texto */
+    font-weight: normal; /* Remove o negrito */
+}
+
+/* Estiliza o título do meio */
+.midle-title {
+    font-family: Arial, sans-serif; /* Define a fonte Arial */
+    font-weight: bold; /* Deixa o texto em negrito */
+    font-size: 2.5rem; /* Ajuste o tamanho conforme necessário */
+    text-align: center; /* Centraliza o texto */
+    margin: 20px 0; /* Adiciona espaçamento ao redor */
+}
+
+/* Estiliza o subtítulo do meio */
+.midle-subtitle {
+    font-family: Arial, sans-serif; /* Define a fonte Arial */
+    font-weight: normal; /* Deixa o texto em negrito */
+    font-size: 1rem; /* Ajuste o tamanho conforme necessário */
+    text-align: center; /* Centraliza o texto */
+    color: #707070; /* Cor do texto */
+}
+
+/* Seção de destaques */
+.features-section {
+    display: flex; /* Alinha as caixas horizontalmente */
+    flex-wrap: wrap; /* Permite que as caixas quebrem linha em telas menores */
+    justify-content: center; /* Centraliza as caixas */
+    gap: 20px; /* Espaçamento entre as caixas */
+    padding: 40px 20px; /* Espaçamento interno da seção */
+    background-color: transparent; /* Remove o fundo leitoso */
+}
+
+/* Estilo das caixas */
+.feature-box {
+    background-color: white; /* Fundo branco */
+    border: 1px solid #ddd; /* Borda leve */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    padding: 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o conteúdo */
+    width: 250px; /* Largura fixa */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animação ao passar o mouse */
+}
+
+/* Ícones das caixas */
+.feature-icon {
+    width: 50px; /* Tamanho do ícone */
+    height: auto; /* Mantém a proporção */
+    margin-bottom: 15px; /* Espaçamento abaixo do ícone */
+}
+
+/* Títulos das caixas */
+.feature-title {
+    font-size: 1.2rem; /* Tamanho do título */
+    font-weight: bold; /* Negrito */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+    color: #333; /* Cor do texto */
+}
+
+/* Descrição das caixas */
+.feature-description {
+    font-size: 0.9rem; /* Tamanho do texto */
+    color: #666; /* Cor do texto */
+    line-height: 1.5; /* Altura da linha */
+}
+
+/* Efeito hover nas caixas */
+.feature-box:hover {
+    transform: translateY(-5px); /* Move a caixa levemente para cima */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Aumenta a sombra */
+}
+
+.section-branca {
+    background-color: white; /* Define o fundo branco */
+    padding: 40px 20px; /* Adiciona espaçamento interno */
+}
+
+@font-face {
+    font-family: 'GeistSans';
+    src: url('../fonts/GeistSans.ttf') format('truetype');
+}
+
+.logo-text {
+    font-family: 'GeistSans', Arial, sans-serif;
+    font-size: 1.2rem;
+    color: black;
     font-weight: bold;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
+/* Estilo geral do footer */
+.footer {
+    background-color: white; /* Fundo branco */
+    padding: 40px 20px; /* Espaçamento interno */
+    border-top: 1px solid #ddd; /* Linha de separação no topo */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    color: #333; /* Cor do texto */
+    margin-bottom: auto;
+    position: relative; /* Permite posicionar elementos filhos */
+}
+
+/* Container principal do footer */
+.footer-container {
+    display: flex; /* Alinha os itens horizontalmente */
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+    justify-content: space-between; /* Espaça os itens */
+    gap: 20px; /* Espaçamento entre as seções */
+}
+
+/* Seções do footer */
+.footer-section {
+    flex: 1; /* Faz as seções ocuparem o mesmo espaço */
+    min-width: 200px; /* Largura mínima para cada seção */
+}
+
+/* Logo e descrição */
+.footer-description {
+    font-size: 0.9rem; /* Tamanho do texto */
+    color: #666; /* Cor do texto */
+    margin-top: 0px; /* Espaçamento acima */
+    margin-left: 20px; /* Espaçamento à esquerda */
+}
+
+/* Direitos autorais dentro do footer */
+.footer .direitos-autorais {
+    font-size: 0.8rem; /* Tamanho do texto */
+    color: #7e7e7e; /* Cor do texto */
+    position: absolute; /* Posiciona o elemento em relação ao footer */
+    bottom: 0; /* Alinha ao final do footer */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Faz o texto ocupar toda a largura */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    background-color: white; /* Fundo branco */
+    padding: 10px 0; /* Espaçamento interno vertical */
+    box-sizing: border-box; /* Inclui padding no tamanho total */
+}
+
+/* Títulos das seções */
+.footer-title {
+    font-size: 1rem; /* Tamanho do título */
+    font-weight: bold; /* Negrito */
+    margin-bottom: 10px; /* Espaçamento abaixo */
+}
+
+/* Links do footer */
+.footer-links {
+    list-style: none; /* Remove marcadores da lista */
+    padding: 0; /* Remove padding padrão */
+    margin: 0; /* Remove margens padrão */
+}
+
+.footer-link {
+    text-decoration: none; /* Remove sublinhado */
+    color: #333; /* Cor do link */
+    font-size: 0.9rem; /* Tamanho do texto */
+    margin-bottom: 5px; /* Espaçamento entre os links */
+    display: block; /* Faz os links ocuparem uma linha inteira */
+}
+
+.footer-link:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Linha de separação e direitos autorais */
+.footer-bottom {
+    margin-top: 20px; /* Espaçamento acima */
+    border-top: 1px solid #ddd; /* Linha de separação */
+    padding-top: 20px; /* Espaçamento interno acima */
+    display: flex; /* Alinha os itens horizontalmente */
+    justify-content: space-between; /* Espaça os itens */
+    align-items: center; /* Centraliza verticalmente */
+    font-size: 0.8rem; /* Tamanho do texto */
+    color: #666; /* Cor do texto */
+}
+
+.hidden {
+    opacity: 0; /* Torna o elemento invisível */
+    transform: translateY(20px); /* Move o elemento levemente para baixo */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Animação suave */
+}
+
+.show {
+    opacity: 1; /* Torna o elemento visível */
+    transform: translateY(0); /* Move o elemento para a posição original */
 }
