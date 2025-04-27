@@ -14,3 +14,5 @@
 
     // Observa cada elemento com a classe "hidden"
     hiddenElements.forEach((el) => observer.observe(el));
+
+    

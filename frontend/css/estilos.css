@@ -102,14 +102,6 @@ body {
     margin-right: 20px;
 }
 
-/* Estiliza a imagem central */
-.img-codando {
-    display: block; /* Faz a imagem se comportar como um bloco */
-    margin: 0 auto; /* Centraliza horizontalmente */
-    max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho do container */
-    height: auto; /* Mantém a proporção da imagem */
-}
-
 .action-button{
     background: linear-gradient(90deg, #009349, #00cc66); /* Fundo preto */
     color: white; /* Texto branco */
@@ -130,27 +122,75 @@ body {
     background: linear-gradient(90deg, #007a3a, #00a653); /* Fundo mais escuro ao passar o mouse */
 }
 
+.main-content {
+    display: flex; /* Ativa o Flexbox */
+    align-items: center; /* Alinha verticalmente o texto e a imagem */
+    justify-content: space-between; /* Espaça os itens horizontalmente */
+    gap: 20px; /* Espaçamento entre o texto e a imagem */
+    margin: 100px 20px 20px; /* Adiciona margem superior para evitar a sobreposição da navbar */
+}
+
+.text-content {
+    display: flex; /* Ativa o Flexbox */
+    flex-direction: column; /* Organiza o título e o subtítulo em coluna */
+    gap: 10px; /* Espaçamento entre o título e o subtítulo */
+    flex: 1; /* Faz o texto ocupar o espaço restante */
+}
+
 .main-title {
     font-family: Arial, sans-serif; /* Define a fonte Arial */
     font-weight: bold; /* Deixa o texto em negrito */
     font-size: 3rem; /* Ajuste o tamanho conforme necessário */
-    text-align: left; /* Centraliza o texto */
-    margin: 20px 0; /* Adiciona espaçamento ao redor */
-    margin-left: 20px;
+    text-align: left; /* Alinha o texto à esquerda */
+    margin: 0; /* Remove margens extras */
 }
 
 .main-subtitle {
     font-family: Arial, sans-serif; /* Define a fonte Arial */
-    font-weight: bold; /* Deixa o texto em negrito */
-    font-size: 1rem; /* Ajuste o tamanho conforme necessário */
-    text-align: left; /* Centraliza o texto */
-    margin: 20px 0; /* Adiciona espaçamento ao redor */
-    margin-left: 20px;
+    font-weight: normal; /* Deixa o texto com peso normal */
+    font-size: 1.2rem; /* Ajuste o tamanho conforme necessário */
+    text-align: left; /* Alinha o texto à esquerda */
+    margin: 0; /* Remove margens extras */
 }
 
-/* Adicionando margem aos botões de início de trilha:*/
-.botao-container {
-    margin-left: 20px;
+.img-codando {
+    max-width: 600px; /* Define a largura máxima da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 10px; /* (Opcional) Adiciona bordas arredondadas */
+    flex-shrink: 0; /* Garante que a imagem não encolha */
+}
+
+.scratch-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Largura máxima */
+    margin: 20px auto; /* Centraliza o contêiner */
+    text-align: center;
+}
+
+#scratchCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc; /* Cor da camada superior */
+    cursor: crosshair; /* Cursor interativo */
+}
+
+.hidden-content {
+    position: relative;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    z-index: -1; /* Fica abaixo do canvas */
+}
+
+.trilha-img {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
 }
 
 /* Estiliza o título do meio */
@@ -332,3 +372,4 @@ body {
     opacity: 1; /* Torna o elemento visível */
     transform: translateY(0); /* Move o elemento para a posição original */
 }
+
