@@ -39,6 +39,18 @@ body {
     justify-content: center;
     padding: 1rem;
 }
+.logo-header {
+    position: absolute; /* Posiciona a logo no canto superior esquerdo */
+    top: 10px; /* Distância do topo */
+    left: 10px; /* Distância da esquerda */
+    z-index: 1000; /* Garante que a logo fique acima de outros elementos */
+}
+
+.logo-img {
+    width: 140px; /* Define a largura da logo */
+    height: auto; /* Mantém a proporção da imagem */
+    object-fit: contain; /* Garante que a imagem não distorça */
+}
 
 .container {
     width: 100%;

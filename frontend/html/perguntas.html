@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questionário Interativo</title>
+    <title>Perguntas Geradoras</title>
     <link rel="stylesheet" href="../css/style-perguntas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <body>
+        <header class="logo-header">
+            <img src="../images/perguntas-imagens/logo-start-2.png" alt="Logo Start Tracking" class="logo-img">
+        </header>
+        <main class="container">
+            <!-- Conteúdo existente -->
     <main class="container">
         <div class="questionnaire-layout">
             <div class="robot-icon-container">
@@ -17,7 +23,7 @@
             <div class="speech-bubble">
                 <div class="card" id="questionnaire-card">
                     <div class="card-header">
-                        <h2>Questionário</h2>
+                        <h2>Responda a pergunta abaixo</h2>
                         <span id="question-counter">Pergunta 1 de 14</span>
                         <div class="progress-container">
                             <div class="progress-bar" id="progress-bar"></div>
@@ -70,7 +76,7 @@
                     <i class="fas fa-check-circle"></i>
                 </div>
                 <p class="completion-text">Obrigado por responder todas as perguntas do nosso questionário.</p>
-                <p class="completion-subtext">Suas respostas foram registradas com sucesso.</p>
+                <p class="completion-subtext">Suas respostas foram registradas com sucesso, e sua trilha será gerada!</p>
             </div>
             <div class="card-footer">
                 <button id="restart-btn" class="btn btn-primary">
