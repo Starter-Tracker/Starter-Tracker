@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const restartBtn = document.getElementById('restart-btn');
-
+    // qualquer
     // Função para gerar opções de exemplo (já que são muitas)
     function generateOptions(count, prefix) {
         const options = [];
