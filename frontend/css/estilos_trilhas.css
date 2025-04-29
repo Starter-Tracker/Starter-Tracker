@@ -24,7 +24,7 @@
     gap: 10px; /* Espaçamento entre a imagem e o texto */
 }
 .logo-img {
-    max-width: 50px; /* Define a largura máxima da imagem */
+    max-width: 150px; /* Define a largura máxima da imagem */
     height: auto; /* Mantém a proporção da imagem */
     display: inline-block; /* Garante que a imagem seja tratada como um elemento inline */
     vertical-align: middle; /* Alinha verticalmente com o texto ao lado */
