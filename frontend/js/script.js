@@ -790,7 +790,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Exibir respostas no console (para fins de demonstração)
             
             enviarDados(answers);
-            console.log("Respostas:", answers);
             answers = {};  // limpa respostas
 
         }
@@ -847,57 +846,51 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar o questionário
     updateQuestion();
 });
-
 function formatAnswers(answers) {
-    const questionKeyMap = {
-        1: "LanguageHaveWorkedWith",
-        2: "WebframeHaveWorkedWith",
-        3: "DatabaseHaveWorkedWith",
-        4: "PlatformHaveWorkedWith",
-        5: "ToolsTechHaveWorkedWith",
-        6: "YearsCode",
-        7: "Age",
-        8: "WorkWeekHrs",
-        9: "LanguageWantToWorkWith",
-        10: "WebframeWantToWorkWith",
-        11: "DatabaseWantToWorkWith",
-        12: "PlatformWantToWorkWith",
-        13: "ToolsTechWantToWorkWith",
-        14: "Employment"
+    // Calcula o score de experiência (WorkWeekHrs)
+    const yearsCode = parseInt(answers[6]) || 0;
+    const age = parseInt(answers[7]) || 0;
+    const experienceScore = yearsCode * age;
+
+    // Função para processar arrays
+    const processArray = (arr) => {
+        if (!arr || arr.length === 0) return "";
+        return arr.join(';');
     };
 
-    const formatted = {};
+    // Cria o objeto na ordem desejada
+    const formatted = {
+        LanguageHaveWorkedWith: processArray(answers[1]),
+        WebframeHaveWorkedWith: processArray(answers[2]),
+        DatabaseHaveWorkedWith: processArray(answers[3]),
+        PlatformHaveWorkedWith: processArray(answers[4]),
+        ToolsTechHaveWorkedWith: processArray(answers[5]),
+        YearsCode: parseFloat((answers[6] || 0).toFixed(1)),
+        Age: parseInt(answers[7]) || 0,
+        WorkWeekHrs: parseFloat(experienceScore.toFixed(1)), // Adicionado toFixed(1) aqui
+        LanguageWantToWorkWith: processArray(answers[8]),    // Pergunta 8 do questionário
+        WebframeWantToWorkWith: processArray(answers[9]),    // Pergunta 9
+        DatabaseWantToWorkWith: processArray(answers[10]),   // Pergunta 10
+        PlatformWantToWorkWith: processArray(answers[11]),   // Pergunta 11
+        ToolsTechWantToWorkWith: processArray(answers[12]),  // Pergunta 12
+        Employment: processArray(answers[13])                // Pergunta 13
+    };
 
-    Object.entries(answers).forEach(([key, value]) => {
-        const mappedKey = questionKeyMap[key];
-        if (!mappedKey) return; // ignora se não tiver no mapa
-
-        if (Array.isArray(value)) {
-            formatted[mappedKey] = value.join(';');
-        } else if (!isNaN(value)) {
-            formatted[mappedKey] = Number(value);
-        } else {
-            formatted[mappedKey] = value;
-        }
-    });
-
+    console.log("JSON formatado:", JSON.stringify(formatted, null, 2));
     return formatted;
 }
 
-
-
 async function enviarDados(answers) {
-    const dados = formatAnswers(answers); // Passando o answers aqui corretamente!
-  
+    const dados = formatAnswers(answers);
+    console.log("Dados que serão enviados:", dados);
     try {
-      const response = await axios.post('http://127.0.0.1:3000/api/predict', dados, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-  
-      console.log('Resposta do servidor:', response.data);
+        const response = await axios.post('http://127.0.0.1:3000/api/predict', dados, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        console.log('Resposta do servidor:', response.data);
     } catch (error) {
-      console.error('Erro ao enviar:', error);
+        console.error('Erro ao enviar:', error);
     }
-  }
+}
