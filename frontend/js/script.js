@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "Visual Basic (.Net)",
                 "Zephyr",
                 "Zig",
+                "Nenhum",
             ]
         },
         {
@@ -124,6 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "Vue.js",
                 "WordPress",
                 "Yii 2",
+                "Nenhum",
             ]
         },
         {
@@ -166,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "SQLite",
                 "Supabase",
                 "TiDB",
+                "Nenhum", 
             ]
         },
         {
@@ -200,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "Vercel",
                 "VMware",
                 "Vultr",
+                "Nenhum",
             ]
         },
         {
@@ -241,25 +245,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 "Vite",
                 "Webpack",
                 "Yarn",
+                "Nenhum",
             ]
         },
         {
             id: 6,
             question: "Há quantos anos você trabalha/estuda programação?",
-            type: "number"
+            type: "number",
+            min: 1,
+            max: 100,
         },
         {
             id: 7,
             question: "Quantas linguagens de programação você sabe/já aprendeu?",
-            type: "number"
+            type: "number",
+            min: 1,
+            max: 49,
         },
         {
             id: 8,
-            question: "Seu score de bem-estar",
-            type: "score"
-        },
-        {
-            id: 9,
             question: "Quais linguagens você deseja trabalhar/estudar no futuro? (Selecione quantos quiser)",
             type: "checkbox",
             options: [
@@ -315,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ]
         },
         {
-            id: 10,
+            id: 9,
             question: "Quais frameworks web você quer trabalhar/estudar no futuro? (Selecione quantos quiser)",
             type: "checkbox",
             options: [
@@ -358,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ]
         },
         {
-            id: 11,
+            id: 10,
             question: "Quais bancos de dados você quer trabalhar/estudar no futuro? (Selecione quantos quiser)",
             type: "checkbox",
             options: [
@@ -400,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ]
         },
         {
-            id: 12,
+            id: 11,
             question: "Quais plataformas de nuvem você quer trabalhar/estudar no futuro? (Selecione quantas quiser)",
             type: "checkbox",
             options: [
@@ -434,7 +438,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ]
         },
         {
-            id: 13,
+            id: 12,
             question: "Quais ferramentas de compilação, build e teste você deseja trablhar/estudar no futuro? (Selecione quantas quiser)",
             type: "checkbox",
             options: [
@@ -475,19 +479,19 @@ document.addEventListener('DOMContentLoaded', function() {
             ]
         },
         {
-            id: 14,
+            id: 13,
             question: "Qual o seu estado atual no mercado de trabalho ?",
             type: "checkbox",
             options: [
-                "Employed, full-time",
-                "Employed, part-time",
-                "Independent contractor, freelancer, or self-employed",
-                "Not employed, but looking for work",
-                "Not employed, and not looking for work",
-                "Student, full-time",
-                "Student, part-time",
-                "Retired",
-                "I prefer not to say",
+                "Empregado, tempo integral",
+                "Empregado, meio período",
+                "Trabalhador independente, freelancer ou autônomo",
+                "Desempregado, mas procurando trabalho",
+                "Desempregado e não procurando trabalho",
+                "Estudante, tempo integral",
+                "Estudante, meio período",
+                "Aposentado",
+                "Prefiro não dizer",
             ]
         }
     ];
@@ -522,43 +526,82 @@ document.addEventListener('DOMContentLoaded', function() {
             question.options.forEach((option, index) => {
                 const optionElement = document.createElement('div');
                 optionElement.className = 'option';
-                
+            
                 // Verificar se esta opção já foi selecionada
                 if (answers[question.id] && answers[question.id].includes(option)) {
                     optionElement.classList.add('selected');
                 }
                 
+
                 const checkboxId = `option-${question.id}-${index}`;
-                
+            
                 optionElement.innerHTML = `
                     <input type="checkbox" id="${checkboxId}" name="question-${question.id}" value="${option}" ${answers[question.id] && answers[question.id].includes(option) ? 'checked' : ''}>
                     <label for="${checkboxId}">${option}</label>
                 `;
-                
-                // Adicionar event listener apenas ao checkbox e label
+            
+                // Adicionar event listener ao checkbox
                 const checkbox = optionElement.querySelector('input[type="checkbox"]');
                 
-                checkbox.addEventListener('change', function() {
+                
+                
+                checkbox.addEventListener('change', function () {
+                    if (this.value === "Nenhum") {
+                        // Se "Nenhum" for selecionado, desmarcar todas as outras opções
+                        const allCheckboxes = optionsContainer.querySelectorAll('input[type="checkbox"]');
+                        allCheckboxes.forEach(cb => {
+                            if (cb !== this) {
+                                cb.checked = false;
+                                cb.parentElement.classList.remove('selected');
+                            }
+                        });
+                    } else {
+                        // Se outra opção for selecionada, desmarcar "Nenhum"
+                        const noneCheckbox = optionsContainer.querySelector('input[type="checkbox"][value="Nenhum"]');
+                        if (noneCheckbox) {
+                            noneCheckbox.checked = false;
+                            noneCheckbox.parentElement.classList.remove('selected');
+                        }
+                    }
+
+                    if (this.value === "Prefiro não dizer") {
+                        // Se "Prefiro não dizer" for selecionado, desmarcar todas as outras opções
+                        const allCheckboxes = optionsContainer.querySelectorAll('input[type="checkbox"]');
+                        allCheckboxes.forEach(cb => {
+                            if (cb !== this) {
+                                cb.checked = false;
+                                cb.parentElement.classList.remove('selected');
+                            }
+                        });
+                    } else {
+                        // Se outra opção for selecionada, desmarcar "Prefiro não dizer"
+                        const noneCheckbox = optionsContainer.querySelector('input[type="checkbox"][value="Prefiro não dizer"]');
+                        if (noneCheckbox) {
+                            noneCheckbox.checked = false;
+                            noneCheckbox.parentElement.classList.remove('selected');
+                        }
+                    }
+            
                     // Atualizar classe 'selected' no elemento pai
                     if (this.checked) {
                         optionElement.classList.add('selected');
                     } else {
                         optionElement.classList.remove('selected');
                     }
-                    
+            
                     // Atualizar respostas
                     updateAnswers();
-                    
+            
                     // Verificar se pelo menos uma opção está selecionada
                     const hasSelection = optionsContainer.querySelectorAll('input[type="checkbox"]:checked').length > 0;
                     nextBtn.disabled = !hasSelection;
-                    
+            
                     // Esconder mensagem de validação se houver seleção
                     if (hasSelection) {
                         validationMessage.classList.add('hidden');
                     }
                 });
-                
+            
                 optionsContainer.appendChild(optionElement);
             });
             
@@ -570,12 +613,22 @@ document.addEventListener('DOMContentLoaded', function() {
             numberInputContainer.classList.remove('hidden');
             numberInput.value = answers[question.id] || '';
             numberInput.focus();
+
+            if (question.id === 6) {
+                numberInput.min = 1;
+                numberInput.max = 100;
+                numberInput.placeholder = "Digite um número de 1 a 100";
+            } else {
+                numberInput.min = 0;
+                numberInput.max = "";
+                numberInput.placeholder = "Digite um número";
+            }
             
             // Limitar entrada para números entre 1 e 10 para a pergunta 7
             if (question.id === 7) {
                 numberInput.min = 1;
-                numberInput.max = 10;
-                numberInput.placeholder = "Digite um número de 1 a 10";
+                numberInput.max = 49;
+                numberInput.placeholder = "Digite um número de 1 a 49";
             } else {
                 numberInput.min = 0;
                 numberInput.max = "";
@@ -657,17 +710,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 return false;
             }
         } else if (question.type === 'number') {
-            // Verificar se um número foi inserido
-            const value = numberInput.value.trim();
-            if (!value) {
-                validationMessage.textContent = "Por favor, digite um número para continuar.";
-                validationMessage.classList.remove('hidden');
-                return false;
-            }
-            
-            // Salvar a resposta
-            answers[question.id] = int(value);
-        }
+    // Verificar se um número foi inserido
+    const value = numberInput.value.trim();
+    if (!value) {
+        validationMessage.textContent = "Por favor, digite um número para continuar.";
+        validationMessage.classList.remove('hidden');
+        return false;
+    }
+
+    // Salvar a resposta como número
+    answers[question.id] = parseInt(value, 10); // Converte o valor para um número inteiro
+}
         
         // Se chegou aqui, pode avançar
         validationMessage.classList.add('hidden');
@@ -717,11 +770,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Event listener para o input numérico
     numberInput.addEventListener('input', function() {
+
+        // Validar entrada para a pergunta 6 (limite de 99)
+        if (questions[currentQuestion].id === 6) {
+            let value = parseInt(this.value);
+            if (value > 99) this.value = 99; // Limita o valor máximo a 99
+            if (value < 1) this.value = 1;  // Garante que o valor mínimo seja 1
+        }
+
         // Validar entrada para a pergunta 7 (escala de 1 a 10)
         if (questions[currentQuestion].id === 7) {
             let value = parseInt(this.value);
             if (value < 1) this.value = 1;
-            if (value > 10) this.value = 10;
+            if (value > 49) this.value = 49;
         }
         
         // Habilitar/desabilitar botão próximo
@@ -741,6 +802,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar o questionário
     updateQuestion();
 });
+
 function formatAnswers(answers) {
     const questionKeyMap = {
         1: "LanguageHaveWorkedWith",
@@ -794,8 +856,3 @@ async function enviarDados(answers) {
       console.error('Erro ao enviar:', error);
     }
   }
-  
-  
-
-
-    
