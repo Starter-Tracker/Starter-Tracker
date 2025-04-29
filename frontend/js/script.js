@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const restartBtn = document.getElementById('restart-btn');
-    
+    let answers = {}; // Objeto para armazenar as respostas do questionário
     // Função para gerar opções de exemplo (já que são muitas)
     function generateOptions(count, prefix) {
         const options = [];
@@ -494,7 +494,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Estado do questionário
     let currentQuestion = 0;
-    const answers = {};
+    
 
     // Função para atualizar a interface com a pergunta atual
     function updateQuestion() {
@@ -593,7 +593,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const answer7 = parseInt(answers[7]) || 0;
             
             // Calcular porcentagem (limitada a 100%)
-            let percentage = Math.min((answer6 * answer7) / 100, 100);
+            let percentage = Math.min(answer6 * answer7);
             percentage = Math.round(percentage);
             
             // Atualizar valor e gráfico
@@ -611,7 +611,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Salvar o score como resposta
-            answers[question.id] = percentage.toString();
+            answers[question.id] = percentage;
             
             // Sempre permitir avançar na tela de score
             nextBtn.disabled = false;
@@ -666,7 +666,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Salvar a resposta
-            answers[question.id] = value;
+            answers[question.id] = int(value);
         }
         
         // Se chegou aqui, pode avançar
@@ -690,7 +690,11 @@ document.addEventListener('DOMContentLoaded', function() {
             completionCard.classList.remove('hidden');
             
             // Exibir respostas no console (para fins de demonstração)
+            
+            enviarDados(answers);
             console.log("Respostas:", answers);
+            answers = {};  // limpa respostas
+
         }
     }
 
@@ -737,3 +741,61 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar o questionário
     updateQuestion();
 });
+function formatAnswers(answers) {
+    const questionKeyMap = {
+        1: "LanguageHaveWorkedWith",
+        2: "WebframeHaveWorkedWith",
+        3: "DatabaseHaveWorkedWith",
+        4: "PlatformHaveWorkedWith",
+        5: "ToolsTechHaveWorkedWith",
+        6: "YearsCode",
+        7: "Age",
+        8: "WorkWeekHrs",
+        9: "LanguageWantToWorkWith",
+        10: "WebframeWantToWorkWith",
+        11: "DatabaseWantToWorkWith",
+        12: "PlatformWantToWorkWith",
+        13: "ToolsTechWantToWorkWith",
+        14: "Employment"
+    };
+
+    const formatted = {};
+
+    Object.entries(answers).forEach(([key, value]) => {
+        const mappedKey = questionKeyMap[key];
+        if (!mappedKey) return; // ignora se não tiver no mapa
+
+        if (Array.isArray(value)) {
+            formatted[mappedKey] = value.join(';');
+        } else if (!isNaN(value)) {
+            formatted[mappedKey] = Number(value);
+        } else {
+            formatted[mappedKey] = value;
+        }
+    });
+
+    return formatted;
+}
+
+
+
+async function enviarDados(answers) {
+    const dados = formatAnswers(answers); // Passando o answers aqui corretamente!
+  
+    try {
+      const response = await axios.post('http://127.0.0.1:3000/api/predict', dados, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+  
+      console.log('Resposta do servidor:', response.data);
+    } catch (error) {
+      console.error('Erro ao enviar:', error);
+    }
+  }
+  
+  
+
+
+    
