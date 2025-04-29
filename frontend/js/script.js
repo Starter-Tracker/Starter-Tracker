@@ -527,12 +527,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const optionElement = document.createElement('div');
                 optionElement.className = 'option';
             
-                // Verificar se esta opção já foi selecionada
-                if (answers[question.id] && answers[question.id].includes(option)) {
-                    optionElement.classList.add('selected');
-                }
-                
-
                 const checkboxId = `option-${question.id}-${index}`;
             
                 optionElement.innerHTML = `
@@ -542,10 +536,61 @@ document.addEventListener('DOMContentLoaded', function() {
             
                 // Adicionar event listener ao checkbox
                 const checkbox = optionElement.querySelector('input[type="checkbox"]');
-                
-                
-                
+        
                 checkbox.addEventListener('change', function () {
+
+                    if (question.id === 13) {
+                        const employedOptions = [
+                            "Empregado, tempo integral",
+                            "Empregado, meio período",
+                            "Trabalhador independente, freelancer ou autônomo"
+                        ];
+                        const unemployedOptions = [
+                            "Desempregado, mas procurando trabalho",
+                            "Desempregado e não procurando trabalho"
+                        ];
+                        const retiredOption = "Aposentado";
+            
+                        // Se uma opção de "Empregado" for marcada, desmarcar "Desempregado" e "Aposentado"
+                        if (employedOptions.includes(this.value) && this.checked) {
+                            unemployedOptions.forEach(option => {
+                                const checkbox = optionsContainer.querySelector(`input[type="checkbox"][value="${option}"]`);
+                                if (checkbox) {
+                                    checkbox.checked = false;
+                                    checkbox.parentElement.classList.remove('selected');
+                                }
+                            });
+                            
+                        }
+            
+                        // Se uma opção de "Desempregado" for marcada, desmarcar "Empregado" e "Aposentado"
+                        if (unemployedOptions.includes(this.value) && this.checked) {
+                            employedOptions.forEach(option => {
+                                const checkbox = optionsContainer.querySelector(`input[type="checkbox"][value="${option}"]`);
+                                if (checkbox) {
+                                    checkbox.checked = false;
+                                    checkbox.parentElement.classList.remove('selected');
+                                }
+                            });
+                            const retiredCheckbox = optionsContainer.querySelector(`input[type="checkbox"][value="${retiredOption}"]`);
+                            if (retiredCheckbox) {
+                                retiredCheckbox.checked = false;
+                                retiredCheckbox.parentElement.classList.remove('selected');
+                            }
+                        }
+            
+                        // Se "Aposentado" for marcado, desmarcar "Desempregado"
+                        if (this.value === retiredOption && this.checked) {
+                            unemployedOptions.forEach(option => {
+                                const checkbox = optionsContainer.querySelector(`input[type="checkbox"][value="${option}"]`);
+                                if (checkbox) {
+                                    checkbox.checked = false;
+                                    checkbox.parentElement.classList.remove('selected');
+                                }
+                            });
+                        }
+                    }
+
                     if (this.value === "Nenhum") {
                         // Se "Nenhum" for selecionado, desmarcar todas as outras opções
                         const allCheckboxes = optionsContainer.querySelectorAll('input[type="checkbox"]');
