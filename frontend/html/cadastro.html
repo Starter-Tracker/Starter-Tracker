@@ -8,52 +8,56 @@
     </head>
     <body class="body-cadastro">
 
-        <div class="botao-logo">
-            <a href="index.html" class="logo-link">
-                <img src="../images/login-imagens/logo-botao.png" alt="Logo" class="logo-imagem">
-            </a>
-        </div>
-        
-        <section class="cadastro-section">
-            <div class="container-form-cadastro">
-                <h1 class="cadastro-titulo">Cadastro</h1>
-                    <form class="cadastro-form" action="../backend/cadastro.php" method="POST">
+    <div class="botao-logo">
+        <a href="index.html" class="logo-link">
+            <img src="../images/login-imagens/logo-botao.png" alt="Logo" class="logo-imagem">
+        </a>
+    </div>
+    
+    <section class="cadastro-section">
+        <div class="container-form-cadastro">
+            <h1 class="cadastro-titulo">Cadastro</h1>
+            <form id="register-form" class="cadastro-form">
+                <input type="text" id="username" name="username" placeholder="Usuário" required>
+                <div id="username-error" class="error-message"></div>
+            
+                <input type="email" id="email" name="email" placeholder="E-mail" required>
+                <div id="email-error" class="error-message"></div>
+            
+                <div class="input-container">
+                    <input type="password" id="password" name="password" placeholder="Senha" required>
+                    <!-- ... botão de toggle ... -->
+                </div>
+                <div id="password-error" class="error-message"></div>
+            
+                <div class="input-container">
+                    <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirmar Senha" required>
+                    <!-- ... botão de toggle ... -->
+                </div>
+                <div id="confirm_password-error" class="error-message"></div>
+            
+                <button class="botao-cadastrar" type="submit">Cadastrar</button>
+            </form>
+            <p class="social-cadastro-text">Ou Cadastre-se com:</p>
 
-                        <input class="input-nome" type="text" name="Nome" placeholder="Usuário" required>
-
-                        <input class="input-email" type="email" name="Email" placeholder="E-mail" required>
-                
-                        <div class="input-container">
-                            <input id="password" class="input-senha" type="password" name="Senha" placeholder="Senha" required>
-                            <button type="button" class="toggle-password" id="toggle-password">
-                                <img src="../images/login-imagens/olho-fechado.png" alt="Mostrar senha" class="eye-icon" id="eye-icon">
-                            </button>
-                        </div>
-                
-                        <div class="input-container">
-                            <input id="confirm-password" class="input-confirmar-senha" type="password" name="ConfirmarSenha" placeholder="Confirmar Senha" required>
-                            <button type="button" class="toggle-password" id="toggle-password-confirm">
-                                <img src="../images/login-imagens/olho-fechado.png" alt="Mostrar senha" class="eye-icon" id="eye-icon-confirm">
-                            </button>
-                        </div>
-
-                        <button class="botao-cadastrar" type="submit">Cadastrar</button>
-                    </form>
-                        <p class="social-cadastro-text">Ou Cadastre-se com:</p>
-                    <div class="social-cadastro">
-                        <a href="#" class="social-cadastro-link">
-                            <img src="../images/login-imagens/google.png" alt="Google" class="social-cadastro-icon">
-                        </a>
-                        <a href="#" class="social-cadastro-link">
-                            <img src="../images/login-imagens/facebook.png" alt="Facebook" class="social-cadastro-icon">
-                        </a>
-                        <a href="#" class="social-cadastro-link">
-                            <img src="../images/login-imagens/twitter.png" alt="Twitter" class="social-cadastro-icon">
-                        </a>
-                    </div>
-                <p class="cadastro-login-link">Já possui uma conta? <a class="link-login" href="login.html">Faça login aqui!</a></p>
+            <div class="social-cadastro">
+                <a href="#" class="social-cadastro-link">
+                    <img src="../images/login-imagens/google.png" alt="Google" class="social-cadastro-icon">
+                </a>
+                <a href="#" class="social-cadastro-link">
+                    <img src="../images/login-imagens/facebook.png" alt="Facebook" class="social-cadastro-icon">
+                </a>
+                <a href="#" class="social-cadastro-link">
+                    <img src="../images/login-imagens/twitter.png" alt="Twitter" class="social-cadastro-icon">
+                </a>
             </div>
-        </section>
-        <script src="../js/cadastro.js"></script>
-    </body>
+
+            <p class="cadastro-login-link">Já possui uma conta? 
+                <a class="link-login" href="login.html">Faça login aqui!</a>
+            </p>
+        </div>
+    </section>
+
+    <script src="../js/cadastro.js"></script>
+</body>
 </html>

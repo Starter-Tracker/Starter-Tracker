@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM carregado'); // Verifique se este log aparece no console
-
+    // Toggle de senha (mantido igual)
     const togglePassword = document.getElementById('toggle-password');
     const passwordInput = document.getElementById('password');
     const eyeIcon = document.getElementById('eye-icon');
@@ -19,48 +18,44 @@ document.addEventListener('DOMContentLoaded', () => {
                 : '../images/login-imagens/olho-fechado.png';
             eyeIcon.alt = isPasswordVisible ? 'Ocultar senha' : 'Mostrar senha';
         });
-    } else {
-        console.error('Elementos não encontrados no DOM');
     }
+
+    // Função de login - CORREÇÕES AQUI
+    const loginForm = document.getElementById('login-form'); // ✅ Usando ID em vez de classe
     
-});
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // ✅ Seletores corrigidos (usando IDs)
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
-
-//função para redirecionar quando fizer login
-
-const loginForm = document.querySelector('.login-form');
-    
-if (loginForm) {
-    loginForm.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Impede o envio tradicional do formulário
-        
-        // Obtém os valores dos campos
-        const email = document.querySelector('.email-input').value;
-        const password = document.getElementById('password').value;
-
-        try {
-            const response = await fetch('/api/auth/login', {
-                method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/json' 
-                },
-                body: JSON.stringify({ 
-                    email: email, 
-                    password: password 
-                }),
-            });
+            try {
+                // ✅ URL COMPLETA do backend (ajuste a porta se necessário)
+                const response = await fetch('http://localhost:3000/api/auth/login', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json' 
+                    },
+                    body: JSON.stringify({ 
+                        email, 
+                        password 
+                    }),
+                });
 
             const data = await response.json();
 
-            if (response.ok) {
-                // Redireciona para a página retornada pelo servidor
-                window.location.href = data.redirectTo || '/perguntas.html';
-            } else {
-                alert(data.message || 'Erro no login');
+                if (response.ok) {
+                    // Redirecionamento
+                    window.location.href = data.redirectTo || './perguntas.html';
+                } else {
+                    alert(data.message || 'Erro no login');
+                }
+            } catch (error) {
+                console.error('Erro ao fazer login:', error);
+                alert('Falha na conexão. Verifique o console para detalhes.');
             }
-        } catch (error) {
-            console.error('Erro ao fazer login:', error);
-            alert('Falha na conexão com o servidor');
-        }
-    });
-}
+        });
+    }
+});

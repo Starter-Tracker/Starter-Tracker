@@ -1,41 +1,95 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM carregado'); // Verifique se este log aparece no console
+    const form = document.getElementById('register-form');
+    
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-    // Configuração para o campo de senha
-    const togglePassword = document.getElementById('toggle-password');
-    const passwordInput = document.getElementById('password');
-    const eyeIcon = document.getElementById('eye-icon');
+            // Limpar erros
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach(el => el.textContent = '');
 
-    if (togglePassword && passwordInput && eyeIcon) {
-        togglePassword.addEventListener('click', () => {
-            const isPasswordVisible = passwordInput.type === 'password';
-            passwordInput.type = isPasswordVisible ? 'text' : 'password';
-            eyeIcon.src = isPasswordVisible 
-                ? '../images/login-imagens/olho-aberto.png' 
-                : '../images/login-imagens/olho-fechado.png';
-            eyeIcon.alt = isPasswordVisible ? 'Ocultar senha' : 'Mostrar senha';
+            // Coletar dados
+            const formData = {
+                username: document.getElementById('username').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                password: document.getElementById('password').value,
+                confirm_password: document.getElementById('confirm-password').value
+            };
+
+            // Validação frontend
+            let isValid = true;
+
+            // Validação para cada campo
+            if (!formData.username) {
+                showError('username-error', 'O nome de usuário é obrigatório');
+                isValid = false;
+            }
+
+            if (!formData.email) {
+                showError('email-error', 'O email é obrigatório');
+                isValid = false;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+                showError('email-error', 'Por favor, insira um email válido');
+                isValid = false;
+            }
+
+            if (!formData.password) {
+                showError('password-error', 'A senha é obrigatória');
+                isValid = false;
+            } else if (formData.password.length < 8) {
+                showError('password-error', 'A senha deve ter pelo menos 8 caracteres');
+                isValid = false;
+            }
+
+            if (formData.password !== formData.confirm_password) {
+                showError('confirm_password-error', 'As senhas não coincidem');
+                isValid = false;
+            }
+
+            if (isValid) {
+                try {
+                    // URL CORRETA do seu backend
+                    const response = await fetch('http://localhost:3000/api/auth/register', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    const result = await response.json();
+                        
+                    if (!response.ok) {
+                        // Tratar erros do backend
+                        if (result.errors) {
+                            result.errors.forEach(error => {
+                                const errorId = `${error.path}-error`;
+                                showError(errorId, error.msg);
+                            });
+                        }
+                        throw new Error(result.message || 'Erro no cadastro');
+                    }
+
+                    // Redirecionar se sucesso
+                    window.location.href = './login.html';
+                    
+                } catch (error) {
+                    console.error('Erro no cadastro:', error);
+                    alert('Erro: ' + error.message);
+                }
+            }
         });
-    } else {
-        console.error('Elementos do campo de senha não encontrados no DOM');
     }
 
-    // Configuração para o campo de confirmar senha
-    const toggleConfirmPassword = document.getElementById('toggle-password-confirm');
-    const confirmPasswordInput = document.getElementById('confirm-password');
-    const eyeIconConfirm = document.getElementById('eye-icon-confirm');
-
-    if (toggleConfirmPassword && confirmPasswordInput && eyeIconConfirm) {
-        toggleConfirmPassword.addEventListener('click', () => {
-            const isPasswordVisible = confirmPasswordInput.type === 'password';
-            confirmPasswordInput.type = isPasswordVisible ? 'text' : 'password';
-            eyeIconConfirm.src = isPasswordVisible 
-                ? '../images/login-imagens/olho-aberto.png' 
-                : '../images/login-imagens/olho-fechado.png';
-            eyeIconConfirm.alt = isPasswordVisible ? 'Ocultar senha' : 'Mostrar senha';
-        });
-    } else {
-        console.error('Elementos do campo de confirmar senha não encontrados no DOM');
+    function showError(elementId, message) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.textContent = message;
+        } else {
+            console.warn(`Elemento com ID ${elementId} não encontrado`);
+        }
     }
+
+    // ... (seu código existente para os toggles de senha)
 });
-
-
