@@ -913,7 +913,7 @@ async function enviarDados(answers) {
         });
         console.log('Resposta do servidor:', response.data);
         predictionResult = response.data.prediction.toLowerCase();
-        alert(predictionResult);
+        
     } catch (error) {
         console.error('Erro ao enviar:', error);
     }
