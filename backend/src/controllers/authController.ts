@@ -23,7 +23,7 @@ export const register = async (req: Request, res: Response): Promise<void> => {
         await newUser.save();
 
         // Retornar resposta com status 201
-        res.status(201).json({ message: 'Usuário cadastrado com sucesso!' });
+        res.status(201).json({ message: 'Usuário cadastrado com sucesso!',  });
     } catch (error) {
         res.status(500).json({ message: 'Erro no servidor', error });
     }
@@ -61,7 +61,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
         // Gerar token JWT
         const token = jwt.sign({ id: user._id, email: user.email }, JWT_SECRET, { expiresIn: '1h' });
 
-        res.status(200).json({ token, user: { id: user._id, username: user.username, email: user.email } });
+        res.status(200).json({ token, user: { id: user._id, username: user.username, email: user.email, redirectTo: '/questionario.html' } });
     } catch (error) {
         res.status(500).json({ message: 'Erro no servidor', error });
     }

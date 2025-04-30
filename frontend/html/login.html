@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Start Tracking</title>
     <link rel="stylesheet" href="../css/style-login.css">
+    <title>Login - Start Tracking</title>
 </head>
 <body>
 
@@ -17,13 +17,12 @@
     <section class="login">
         <div class="container-form-login">
             <h1 class="login-title">Login</h1>
-            <!-- ADICIONADO id="login-form" -->
-            <form id="login-form" class="login-form">
+            <form action="../backend/login.php" method="POST" class="login-form">
                 <div class="form-group">
-                    <input type="email" name="email" placeholder="E-mail" class="form-input email-input" required>
+                    <input type="email" name="E-mail" placeholder="E-mail" class="form-input email-input" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" name="password" placeholder="Senha" class="form-input password-input" id="password" required>
+                    <input type="password" name="Senha" placeholder="Senha" class="form-input password-input" id="password" required>
                     <button type="button" class="toggle-password" id="toggle-password">
                         <img src="../images/login-imagens/olho-fechado.png" alt="Mostrar senha" class="eye-icon" id="eye-icon">
                     </button>
@@ -53,7 +52,6 @@
             </p>
         </div>
     </section>
-
     <script src="../js/login.js"></script>
 </body>
 </html>

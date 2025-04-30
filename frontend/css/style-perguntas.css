@@ -1,0 +1,417 @@
+:root {
+    --green-50: #f0fdf4;
+    --green-100: #dcfce7;
+    --green-200: #bbf7d0;
+    --green-300: #86efac;
+    --green-400: #4ade80;
+    --green-500: #22c55e;
+    --green-600: #16a34a;
+    --green-700: #15803d;
+    --green-800: #166534;
+    --green-900: #14532d;
+    --green-950: #052e16;
+    --white: #ffffff;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+    --border-radius: 0.5rem;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, var(--green-50), var(--green-100));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+.logo-header {
+    position: absolute; /* Posiciona a logo no canto superior esquerdo */
+    top: 10px; /* Distância do topo */
+    left: 10px; /* Distância da esquerda */
+    z-index: 1000; /* Garante que a logo fique acima de outros elementos */
+    text-decoration: none; /* Remove o sublinhado do link */
+    display: inline-block; /* Permite definir largura e altura */
+}
+
+.logo-img {
+    width: 140px; /* Define a largura da logo */
+    height: auto; /* Mantém a proporção da imagem */
+    object-fit: contain; /* Garante que a imagem não distorça */
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Layout do questionário e ícone do robô lado a lado */
+.questionnaire-layout {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 2rem;
+}
+
+/* Ícone do Robô */
+.robot-icon-container {
+    flex: 0 0 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.robot-icon {
+    font-size: 4rem;
+    color: var(--green-600);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Balão de fala */
+.speech-bubble {
+    flex: 1;
+    position: relative;
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    transform: translateY(-50%);
+    border-width: 20px 20px 20px 0;
+    border-style: solid;
+    border-color: transparent var(--green-600) transparent transparent;
+    z-index: 1;
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--green-200);
+    overflow: hidden;
+    width: 100%;
+}
+
+.card-header {
+    background-color: var(--green-600);
+    color: var(--white);
+    padding: 1.5rem;
+    position: relative;
+}
+
+.card-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+#question-counter {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.progress-container {
+    height: 0.5rem;
+    background-color: var(--green-300);
+    border-radius: 9999px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--white);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.question-container {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#question-text {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--gray-800);
+}
+
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+    gap: 0.75rem; /* Espaço entre a checkbox e o texto */
+    min-height: 50px; /* Altura mínima para padronizar */
+    word-wrap: break-word; /* Quebra o texto longo */
+}
+
+.option.selected {
+    border-color: var(--green-500);
+    background-color: var(--green-50);
+}
+
+.option input[type="checkbox"] {
+    flex-shrink: 0; /* Impede que a checkbox diminua de tamanho */
+    width: 1.25rem; /* Tamanho fixo da checkbox */
+    height: 1.25rem; /* Tamanho fixo da checkbox */
+    margin-right: 0.75rem;
+    cursor: pointer;
+    accent-color: var(--green-600); /* Define a cor verde */
+    appearance: none; /* Remove o estilo padrão do navegador */
+    border: 2px solid var(--green-600); /* Adiciona uma borda verde */
+    border-radius: 4px; /* Bordas arredondadas */
+    background-color: white; /* Fundo branco */
+    display: inline-block;
+    position: relative;
+}
+
+
+.option input[type="checkbox"]:checked {
+    background-color: var(--green-600); /* Fundo verde quando selecionado */
+    border-color: var(--green-600); /* Borda verde */
+}
+
+.option input[type="checkbox"]:hover {
+    background-color: var(--green-100); /* Fundo verde claro ao passar o mouse */
+    border-color: var(--green-500); /* Borda verde mais escura */
+}
+
+.option label {
+    flex-grow: 1; /* Faz o texto ocupar o espaço restante */
+    font-size: 0.875rem;
+    cursor: pointer;
+    word-wrap: break-word; /* Quebra o texto longo */
+    overflow-wrap: break-word; /* Compatibilidade adicional para quebra de texto */
+    line-height: 1.5; /* Melhor espaçamento entre linhas */
+}
+
+.number-input-container {
+    margin: 1rem auto; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o conteúdo dentro do container */
+    width: 100%; /* Define a largura total */
+    max-width: 400px; /* Aumenta o tamanho máximo do container */
+}
+
+#number-input {
+    width: 100%; /* Faz o input ocupar toda a largura do container */
+    max-width: 300px; /* Define um tamanho máximo para o input */
+    padding: 1rem; /* Aumenta o espaçamento interno */
+    border: 2px solid var(--green-300);
+    border-radius: var(--border-radius);
+    font-size: 1.5rem; /* Aumenta o tamanho da fonte */
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s ease;
+    font-size: 1rem; /* Reduz o tamanho da fonte */
+}
+
+#number-input:focus {
+    border-color: var(--green-600);
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.score-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(var(--green-600) 0%, var(--green-300) 0%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.score-circle::before {
+    content: '';
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+#score-value {
+    position: relative;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--green-700);
+}
+
+#score-text {
+    text-align: center;
+    color: var(--gray-600);
+}
+
+.validation-message {
+    margin-top: 1rem;
+    color: #e53e3e;
+    text-align: center;
+    font-size: 0.875rem;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    background-color: #fff5f5;
+    border: 1px solid #fed7d7;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-top: 1px solid var(--gray-200);
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--green-600);
+    color: var(--white);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--green-700);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--green-200);
+    color: var(--green-700);
+}
+
+.btn-outline:hover:not(:disabled) {
+    background-color: var(--green-50);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.hidden {
+    display: none;
+}
+
+.completion-content {
+    text-align: center;
+    padding: 2rem;
+}
+
+.completion-icon {
+    font-size: 4rem;
+    color: var(--green-500);
+    margin-bottom: 1.5rem;
+}
+
+.completion-text {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+}
+
+.completion-subtext {
+    color: var(--gray-600);
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .questionnaire-layout {
+        flex-direction: column;
+    }
+    
+    .robot-icon-container {
+        margin-bottom: 20px;
+    }
+    
+    .speech-bubble::before {
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 0 20px 20px;
+        border-color: transparent transparent var(--green-600);
+    }
+    
+    .options-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+#show-results-btn {
+    margin-top: 1.5rem;
+    width: 100%;
+    max-width: 300px;
+}
+
+.completion-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 640px) {
+    .card-header, .card-content, .card-footer {
+        padding: 1rem;
+    }
+    
+    .option {
+        padding: 0.625rem;
+    }
+    
+    #question-text {
+        font-size: 1rem;
+    }
+    
+    .options-container {
+        grid-template-columns: 1fr;
+        max-height: 250px;
+    }
+}

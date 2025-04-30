@@ -1,57 +1,66 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM carregado');
+    console.log('DOM carregado'); // Verifique se este log aparece no console
 
-    // Configuração para o campo de senha
     const togglePassword = document.getElementById('toggle-password');
     const passwordInput = document.getElementById('password');
     const eyeIcon = document.getElementById('eye-icon');
 
     if (togglePassword && passwordInput && eyeIcon) {
         togglePassword.addEventListener('click', () => {
+            console.log('Botão clicado'); // Verifique se este log aparece no console
+
+            // Alterna o tipo do campo de senha
             const isPasswordVisible = passwordInput.type === 'password';
             passwordInput.type = isPasswordVisible ? 'text' : 'password';
+
+            // Alterna o ícone do olho
             eyeIcon.src = isPasswordVisible 
                 ? '../images/login-imagens/olho-aberto.png' 
                 : '../images/login-imagens/olho-fechado.png';
             eyeIcon.alt = isPasswordVisible ? 'Ocultar senha' : 'Mostrar senha';
         });
     } else {
-        console.error('Elementos do campo de senha não encontrados no DOM');
+        console.error('Elementos não encontrados no DOM');
     }
-
-    // Código para enviar os dados do formulário de login ao backend
-    const loginForm = document.getElementById('login-form');
-    if (loginForm) {
-        loginForm.addEventListener('submit', async (event) => {
-            event.preventDefault(); // Impede o envio padrão do formulário
-
-            const email = document.querySelector('input[name="email"]').value;
-            const password = document.querySelector('input[name="password"]').value;
-
-            try {
-                const response = await fetch('http://localhost:3000/api/auth/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email, password }),
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    alert('Login realizado com sucesso!');
-                    localStorage.setItem('token', data.token); // Armazena o token JWT
-                    window.location.href = 'dashboard.html'; // Redireciona para o dashboard
-                } else {
-                    alert(data.message || 'Erro ao fazer login');
-                }
-            } catch (error) {
-                console.error('Erro ao fazer login:', error);
-                alert('Erro no servidor. Tente novamente mais tarde.');
-            }
-        });
-    } else {
-        console.error('Formulário de login não encontrado no DOM');
-    }
+    
 });
+
+
+//função para redirecionar quando fizer login
+
+const loginForm = document.querySelector('.login-form');
+    
+if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Impede o envio tradicional do formulário
+        
+        // Obtém os valores dos campos
+        const email = document.querySelector('.email-input').value;
+        const password = document.getElementById('password').value;
+
+        try {
+            const response = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json' 
+                },
+                body: JSON.stringify({ 
+                    email: email, 
+                    password: password 
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                // Redireciona para a página retornada pelo servidor
+                window.location.href = data.redirectTo || '/perguntas.html';
+            } else {
+                alert(data.message || 'Erro no login');
+            }
+        } catch (error) {
+            console.error('Erro ao fazer login:', error);
+            alert('Falha na conexão com o servidor');
+        }
+    });
+}

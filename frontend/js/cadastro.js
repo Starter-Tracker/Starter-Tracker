@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM carregado');
+    console.log('DOM carregado'); // Verifique se este log aparece no console
 
     // Configuração para o campo de senha
     const togglePassword = document.getElementById('toggle-password');
@@ -36,40 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.error('Elementos do campo de confirmar senha não encontrados no DOM');
     }
-
-    // CÓDIGO PARA ENVIAR FORMULÁRIO (colocar aqui dentro também)
-    const registerForm = document.getElementById('register-form');
-    if (registerForm) {
-        registerForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            const username = document.querySelector('input[name="username"]').value;
-            const email = document.querySelector('input[name="email"]').value;
-            const password = document.querySelector('input[name="password"]').value;
-
-            try {
-                const response = await fetch('http://localhost:3000/api/auth/register', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ username, email, password }),
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    alert('Cadastro realizado com sucesso!');
-                    window.location.href = 'login.html';
-                } else {
-                    alert(data.message || 'Erro ao realizar cadastro');
-                }
-            } catch (error) {
-                console.error('Erro ao realizar cadastro:', error);
-                alert('Erro no servidor. Tente novamente mais tarde.');
-            }
-        });
-    } else {
-        console.error('Formulário de cadastro não encontrado no DOM');
-    }
 });
+
+
