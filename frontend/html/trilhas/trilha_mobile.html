@@ -1,0 +1,131 @@
+<!--Trilha de desenvolvedor de aplicações para celulares-->
+<!--Configurações da página html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <meta charset="UTF-8"> <!-- Definindo o padrão do conjunto de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta a perspectiva para dispositivos -->
+    <link rel="stylesheet" href="../../css/estilos_trilhas.css"> <!-- Vincula o arquivo CSS -->
+    <title>Trilha de Dev Mobile</title>
+</head>
+<body>
+    <div class="section-leitosa">
+    <!-- Navegação principal -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="../../imagens/logo-start-2.png" alt="Logo" class="logo-img">
+        </div>
+    </nav>
+
+        <<!-- Cabeçalho principal -->
+    <div class="main-content">
+        <div class="text-content">
+            <h1 class="main-title">
+                Aqui está a sua trilha de desenvolvedor <br> mobile
+            </h1>
+            <div class="arrow-down"></div>
+        </div>
+    </div>
+    <div id="pdf-container">
+        <canvas id="pdf-render" class="pdf-canvas"></canvas>
+    </div>
+
+<br><br><br>
+
+<div>
+    <h2 class="mensagem-final">
+        Se precisar de ajuda, fale conosco!
+    </h2>
+</div>
+
+    <script>
+        const url = './docs/mobile.pdf'; // Caminho para o PDF
+    
+        const pdfjsLib = window['pdfjs-dist/build/pdf'];
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+    
+        // Carrega o PDF
+        const loadingTask = pdfjsLib.getDocument(url);
+        loadingTask.promise.then(function(pdf) {
+            // Renderiza a primeira página
+            pdf.getPage(1).then(function(page) {
+                const scale = 0.75; // Ajuste o zoom
+                const viewport = page.getViewport({ scale: scale });
+    
+                // Configura o canvas
+                const canvas = document.getElementById('pdf-render');
+                const context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+    
+                // Renderiza a página no canvas
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                page.render(renderContext);
+            });
+        });
+    </script>
+
+<br><br><br>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo e descrição -->
+            <div class="footer-section">
+                <div class="logo-container">
+                    <img src="../../imagens/bussola.png" alt="Logo" class="logo-img">
+                    <span class="logo-text">Start Tracking</span>
+                </div>
+                <p class="footer-description">
+                    Abrindo caminhos até o sucesso!
+                </p>
+            </div>
+    
+            <!-- Links da plataforma -->
+            <div class="footer-section">
+                <h4 class="footer-title">Plataforma</h4>
+                <ul class="footer-links">
+                    <li><a href="#recursos" class="footer-link">Recursos</a></li>
+                    <li><a href="#trilhas" class="footer-link">Trilhas</a></li>
+                    <li><a href="#comunidade" class="footer-link">Comunidade</a></li>
+                    <li><a href="#precos" class="footer-link">Preços</a></li>
+                </ul>
+            </div>
+    
+            <!-- Links da empresa -->
+            <div class="footer-section">
+                <h4 class="footer-title">Empresa</h4>
+                <ul class="footer-links">
+                    <li><a href="#sobre-nos" class="footer-link">Sobre nós</a></li>
+                    <li><a href="#blog" class="footer-link">Blog</a></li>
+                    <li><a href="#carreiras" class="footer-link">Carreiras</a></li>
+                    <li><a href="#contato" class="footer-link">Contato</a></li>
+                </ul>
+            </div>
+    
+            <!-- Links legais -->
+            <div class="footer-section">
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#termos" class="footer-link">Termos de Uso</a></li>
+                    <li><a href="#privacidade" class="footer-link">Privacidade</a></li>
+                    <li><a href="#cookies" class="footer-link">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Linha de separação e direitos autorais -->
+        <div class="footer-bottom">
+            <p>© 2025 Start Tracking. Todos os direitos reservados.</p>
+            <div class="footer-socials">
+                <a href="#" class="social-link"><img src="../../imagens/x-icon.png" alt="X"></a>
+                <a href="#" class="social-link"><img src="../../imagens/github-icon.png" alt="GitHub"></a>
+                <a href="#" class="social-link"><img src="../../imagens/linkedin-icon.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

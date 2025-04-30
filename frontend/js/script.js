@@ -786,7 +786,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Mostrar tela de conclusão
             document.querySelector('.questionnaire-layout').classList.add('hidden');
             completionCard.classList.remove('hidden');
-            
+            setTimeout(() => {
+                document.getElementById('show-results-btn').classList.remove('hidden');
+            } );
             // Exibir respostas no console (para fins de demonstração)
             
             enviarDados(answers);
@@ -846,6 +848,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar o questionário
     updateQuestion();
 });
+
+document.getElementById('show-results-btn').addEventListener('click', function() {
+    // Mapeia as predições para as páginas correspondentes
+    console.log("Resultado da predição:", predictionResult);
+    const pageMap = {
+        'developer, desktop': './trilhas/trilha_desktop.html',
+        'developer, back-end': './trilhas/trilha_backend.html',
+        'developer, front-end': './trilhas/trilha_frontend.html',
+        'developer, mobile': './trilhas/trilha_mobile.html',
+    };
+    
+    // Obtém a página correspondente ou uma página padrão se não encontrar
+    const targetPage = pageMap[predictionResult];
+    
+    // Redireciona para a página
+    if (targetPage) {
+        window.location.href = targetPage;
+    } else {
+        alert("Resultado de predição não reconhecido: " + predictionResult);
+    }
+});
 function formatAnswers(answers) {
     // Calcula o score de experiência (WorkWeekHrs)
     const yearsCode = parseInt(answers[6]) || 0;
@@ -879,7 +902,7 @@ function formatAnswers(answers) {
     console.log("JSON formatado:", JSON.stringify(formatted, null, 2));
     return formatted;
 }
-
+let predictionResult = '';
 async function enviarDados(answers) {
     const dados = formatAnswers(answers);
     console.log("Dados que serão enviados:", dados);
@@ -890,6 +913,7 @@ async function enviarDados(answers) {
             }
         });
         console.log('Resposta do servidor:', response.data);
+        predictionResult = response.data.prediction.toLowerCase();
     } catch (error) {
         console.error('Erro ao enviar:', error);
     }

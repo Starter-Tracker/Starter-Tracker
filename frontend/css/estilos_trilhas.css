@@ -1,0 +1,153 @@
+.section-leitosa {
+    background-color: #ffffff; /* Tom leitoso */
+    padding-bottom: 50px; /* Espaçamento abaixo da imagem */
+    flex: 1;
+}
+.navbar {
+    position: fixed; /* Fixa a barra no topo da página */
+    top: 0; /* Alinha no topo */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Faz a barra ocupar toda a largura da página */
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco translúcido */
+    backdrop-filter: blur(10px); /* Adiciona desfoque ao fundo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
+    z-index: 1000; /* Garante que a barra fique acima de outros elementos */
+    display: flex; /* Alinha os itens horizontalmente */
+    justify-content: space-between; /* Espaça os itens */
+    align-items: center; /* Centraliza os itens verticalmente */
+    padding: 1px 2px; /* Espaçamento interno */
+}
+
+.logo-container {
+    display: flex; /* Alinha a imagem e o texto horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 10px; /* Espaçamento entre a imagem e o texto */
+}
+.logo-img {
+    max-width: 150px; /* Define a largura máxima da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    display: inline-block; /* Garante que a imagem seja tratada como um elemento inline */
+    vertical-align: middle; /* Alinha verticalmente com o texto ao lado */
+}
+.logo-text {
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem; /* Ajuste o tamanho da fonte */
+    color: black; /* Cor do texto */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+.main-content {
+    display: flex; /* Ativa o Flexbox */
+    align-items: center; /* Alinha verticalmente o texto e a imagem */
+    justify-content: space-between; /* Espaça os itens horizontalmente */
+    gap: 20px; /* Espaçamento entre o texto e a imagem */
+    margin: 100px 20px 20px; /* Adiciona margem superior para evitar a sobreposição da navbar */
+}
+
+.text-content {
+    display: flex; /* Ativa o Flexbox */
+    flex-direction: column; /* Organiza o título e o subtítulo em coluna */
+    gap: 10px; /* Espaçamento entre o título e o subtítulo */
+    flex: 1; /* Faz o texto ocupar o espaço restante */
+}
+
+.main-title {
+    font-family: Arial, sans-serif; /* Define a fonte Arial */
+    font-weight: bold; /* Deixa o texto em negrito */
+    font-size: 3rem; /* Ajuste o tamanho conforme necessário */
+    text-align: center; /* Alinha o texto à esquerda */
+    margin: 0; /* Remove margens extras */
+}
+.arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid black; /* Cor da seta */
+    margin: 10px auto; /* Espaçamento e centralização */
+}
+.pdf-canvas {
+    display: block; /* Garante que o canvas seja tratado como um bloco */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* (Opcional) Adiciona uma sombra para destacar o PDF */
+    border: 1px solid #ddd; /* (Opcional) Adiciona uma borda ao redor do PDF */
+}
+.mensagem-final {
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem; /* Ajuste o tamanho da fonte */
+    color: black; /* Cor do texto */
+    font-weight: bold; /* Deixa o texto em negrito */
+    text-align: center
+}
+.footer {
+    background-color: white; /* Fundo branco */
+    padding: 40px 20px; /* Espaçamento interno */
+    border-top: 1px solid #ddd; /* Linha de separação no topo */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    color: #333; /* Cor do texto */
+    margin-bottom: auto;
+}
+
+/* Container principal do footer */
+.footer-container {
+    display: flex; /* Alinha os itens horizontalmente */
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+    justify-content: space-between; /* Espaça os itens */
+    gap: 20px; /* Espaçamento entre as seções */
+}
+
+/* Seções do footer */
+.footer-section {
+    flex: 1; /* Faz as seções ocuparem o mesmo espaço */
+    min-width: 200px; /* Largura mínima para cada seção */
+}
+
+/* Logo e descrição */
+.footer-description {
+    font-size: 0.9rem; /* Tamanho do texto */
+    color: #666; /* Cor do texto */
+    margin-top: 10px; /* Espaçamento acima */
+}
+
+/* Títulos das seções */
+.footer-title {
+    font-size: 1rem; /* Tamanho do título */
+    font-weight: bold; /* Negrito */
+    margin-bottom: 10px; /* Espaçamento abaixo */
+}
+
+/* Links do footer */
+.footer-links {
+    list-style: none; /* Remove marcadores da lista */
+    padding: 0; /* Remove padding padrão */
+    margin: 0; /* Remove margens padrão */
+}
+
+.footer-link {
+    text-decoration: none; /* Remove sublinhado */
+    color: #333; /* Cor do link */
+    font-size: 0.9rem; /* Tamanho do texto */
+    margin-bottom: 5px; /* Espaçamento entre os links */
+    display: block; /* Faz os links ocuparem uma linha inteira */
+}
+
+.footer-link:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Linha de separação e direitos autorais */
+.footer-bottom {
+    margin-top: 20px; /* Espaçamento acima */
+    border-top: 1px solid #ddd; /* Linha de separação */
+    padding-top: 20px; /* Espaçamento interno acima */
+    display: flex; /* Alinha os itens horizontalmente */
+    justify-content: space-between; /* Espaça os itens */
+    align-items: center; /* Centraliza verticalmente */
+    font-size: 0.8rem; /* Tamanho do texto */
+    color: #666; /* Cor do texto */
+}
+
+/* Ícones sociais */
+.footer-socials {
+    display: flex; /* Alinha os ícones horizontalmente */
+    gap: 10px; /* Espaçamento entre os ícones */
+}
