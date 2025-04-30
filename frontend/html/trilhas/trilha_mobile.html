@@ -1,5 +1,5 @@
-<!--Trilha de desenvolvedor de aplicações para celulares-->
-<!--Configurações da página html-->
+<!-- Trilha de desenvolvedor de aplicações para celulares -->
+<!-- Configurações da página html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,40 +11,42 @@
 </head>
 <body>
     <div class="section-leitosa">
-    <!-- Navegação principal -->
-    <nav class="navbar">
-        <div class="logo-container">
-            <img src="../../imagens/logo-start-2.png" alt="Logo" class="logo-img">
-        </div>
-    </nav>
+        <!-- Navegação principal -->
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="../../images/home-imagens/logo-start-2.png" alt="Logo" class="logo-img">
+            </div>
+        </nav>
 
-        <<!-- Cabeçalho principal -->
-    <div class="main-content">
-        <div class="text-content">
-            <h1 class="main-title">
-                Aqui está a sua trilha de desenvolvedor <br> mobile
-            </h1>
-            <div class="arrow-down"></div>
+        <!-- Cabeçalho principal -->
+        <div class="main-content">
+            <div class="text-content">
+                <h1 class="main-title">
+                    Aqui está a sua trilha de desenvolvedor <br> mobile
+                </h1>
+                <div class="arrow-down"></div>
+            </div>
+        </div>
+
+        <div id="pdf-container">
+            <canvas id="pdf-render" class="pdf-canvas"></canvas>
+        </div>
+
+        <br><br><br>
+
+        <div>
+            <h2 class="mensagem-final">
+                Se precisar de ajuda, fale conosco!
+            </h2>
         </div>
     </div>
-    <div id="pdf-container">
-        <canvas id="pdf-render" class="pdf-canvas"></canvas>
-    </div>
-
-<br><br><br>
-
-<div>
-    <h2 class="mensagem-final">
-        Se precisar de ajuda, fale conosco!
-    </h2>
-</div>
 
     <script>
         const url = './docs/mobile.pdf'; // Caminho para o PDF
-    
+
         const pdfjsLib = window['pdfjs-dist/build/pdf'];
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
-    
+
         // Carrega o PDF
         const loadingTask = pdfjsLib.getDocument(url);
         loadingTask.promise.then(function(pdf) {
@@ -52,13 +54,13 @@
             pdf.getPage(1).then(function(page) {
                 const scale = 0.75; // Ajuste o zoom
                 const viewport = page.getViewport({ scale: scale });
-    
+
                 // Configura o canvas
                 const canvas = document.getElementById('pdf-render');
                 const context = canvas.getContext('2d');
                 canvas.height = viewport.height;
                 canvas.width = viewport.width;
-    
+
                 // Renderiza a página no canvas
                 const renderContext = {
                     canvasContext: context,
@@ -69,21 +71,18 @@
         });
     </script>
 
-<br><br><br>
-
     <footer class="footer">
         <div class="footer-container">
             <!-- Logo e descrição -->
             <div class="footer-section">
                 <div class="logo-container">
-                    <img src="../../imagens/bussola.png" alt="Logo" class="logo-img">
-                    <span class="logo-text">Start Tracking</span>
+                    <img src="../../images/home-imagens/logo-start-2.png" alt="Logo" class="logo-img">
                 </div>
                 <p class="footer-description">
-                    Abrindo caminhos até o sucesso!
+                    Pavimentando caminhos <br> até o sucesso!
                 </p>
             </div>
-    
+
             <!-- Links da plataforma -->
             <div class="footer-section">
                 <h4 class="footer-title">Plataforma</h4>
@@ -94,7 +93,7 @@
                     <li><a href="#precos" class="footer-link">Preços</a></li>
                 </ul>
             </div>
-    
+
             <!-- Links da empresa -->
             <div class="footer-section">
                 <h4 class="footer-title">Empresa</h4>
@@ -105,7 +104,7 @@
                     <li><a href="#contato" class="footer-link">Contato</a></li>
                 </ul>
             </div>
-    
+
             <!-- Links legais -->
             <div class="footer-section">
                 <h4 class="footer-title">Legal</h4>
@@ -116,15 +115,8 @@
                 </ul>
             </div>
         </div>
-    
-        <!-- Linha de separação e direitos autorais -->
-        <div class="footer-bottom">
-            <p>© 2025 Start Tracking. Todos os direitos reservados.</p>
-            <div class="footer-socials">
-                <a href="#" class="social-link"><img src="../../imagens/x-icon.png" alt="X"></a>
-                <a href="#" class="social-link"><img src="../../imagens/github-icon.png" alt="GitHub"></a>
-                <a href="#" class="social-link"><img src="../../imagens/linkedin-icon.png" alt="LinkedIn"></a>
-            </div>
+        <div class="direitos-autorais">
+            © 2025 Todos os direitos reservados.
         </div>
     </footer>
 </body>

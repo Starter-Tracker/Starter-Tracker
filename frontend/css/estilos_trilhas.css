@@ -1,12 +1,26 @@
+html, body {
+    background-color: #eeeeee; /* Cor de fundo leitoso */
+    height: 100%;
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove espaçamento padrão */
+    display: flex; /* Ativa o flexbox */
+    flex-direction: column; /* Organiza o conteúdo em coluna */
+    min-height: 100vh; /* Garante que o body ocupe 100% da altura da tela */
+    margin: 0; /* Remove margens padrão */
+}
+
+/* Define o fundo leitoso até abaixo da imagem */
 .section-leitosa {
-    background-color: #ffffff; /* Tom leitoso */
+    background-color: #eeeeee; /* Fundo leitoso */
     padding-bottom: 50px; /* Espaçamento abaixo da imagem */
     flex: 1;
 }
+/* Estilo da navbar */
 .navbar {
     position: fixed; /* Fixa a barra no topo da página */
     top: 0; /* Alinha no topo */
     left: 0; /* Alinha à esquerda */
+    height: 80px; /* Altura da barra */
     width: 100%; /* Faz a barra ocupar toda a largura da página */
     background-color: rgba(255, 255, 255, 0.8); /* Fundo branco translúcido */
     backdrop-filter: blur(10px); /* Adiciona desfoque ao fundo */
@@ -15,7 +29,8 @@
     display: flex; /* Alinha os itens horizontalmente */
     justify-content: space-between; /* Espaça os itens */
     align-items: center; /* Centraliza os itens verticalmente */
-    padding: 1px 2px; /* Espaçamento interno */
+    padding: 0px 20px; /* Espaçamento interno */
+    box-sizing: border-box; /* Inclui padding e borda no tamanho total */
 }
 
 .logo-container {
@@ -23,11 +38,14 @@
     align-items: center; /* Centraliza verticalmente */
     gap: 10px; /* Espaçamento entre a imagem e o texto */
 }
+/* Estilo para a logo */
 .logo-img {
-    max-width: 150px; /* Define a largura máxima da imagem */
-    height: auto; /* Mantém a proporção da imagem */
-    display: inline-block; /* Garante que a imagem seja tratada como um elemento inline */
-    vertical-align: middle; /* Alinha verticalmente com o texto ao lado */
+    height: 90px; /* Aumenta a altura da logo */
+    max-height: 100%; /* Garante que a logo não ultrapasse a altura da navbar */
+    width: auto; /* Mantém a proporção da imagem */
+    object-fit: contain; /* Garante que a imagem não distorça */
+    margin-left: 10px; /* Adiciona um pequeno espaçamento à esquerda */
+    margin-top: 10px; /* Adiciona um pequeno espaçamento acima */
 }
 .logo-text {
     font-family: Arial, sans-serif;
@@ -41,6 +59,7 @@
     justify-content: space-between; /* Espaça os itens horizontalmente */
     gap: 20px; /* Espaçamento entre o texto e a imagem */
     margin: 100px 20px 20px; /* Adiciona margem superior para evitar a sobreposição da navbar */
+    flex: 1; /* Faz o conteúdo principal ocupar o espaço restante */
 }
 
 .text-content {
@@ -78,13 +97,18 @@
     font-weight: bold; /* Deixa o texto em negrito */
     text-align: center
 }
+
+/* Estilo geral do footer */
 .footer {
     background-color: white; /* Fundo branco */
     padding: 40px 20px; /* Espaçamento interno */
     border-top: 1px solid #ddd; /* Linha de separação no topo */
     font-family: Arial, sans-serif; /* Fonte padrão */
     color: #333; /* Cor do texto */
-    margin-bottom: auto;
+    margin-bottom: 0px; /* Remove margens abaixo */
+    margin-top: auto; /* Faz o footer ficar na parte inferior da página */
+    flex-shrink: 0; /* Impede que o footer encolha */
+    position: relative; /* Permite posicionar elementos filhos */
 }
 
 /* Container principal do footer */
@@ -105,7 +129,22 @@
 .footer-description {
     font-size: 0.9rem; /* Tamanho do texto */
     color: #666; /* Cor do texto */
-    margin-top: 10px; /* Espaçamento acima */
+    margin-top: 0px; /* Espaçamento acima */
+    margin-left: 20px; /* Espaçamento à esquerda */
+}
+
+/* Direitos autorais dentro do footer */
+.footer .direitos-autorais {
+    font-size: 0.8rem; /* Tamanho do texto */
+    color: #7e7e7e; /* Cor do texto */
+    position: absolute; /* Posiciona o elemento em relação ao footer */
+    bottom: 0; /* Alinha ao final do footer */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Faz o texto ocupar toda a largura */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    background-color: white; /* Fundo branco */
+    padding: 10px 0; /* Espaçamento interno vertical */
+    box-sizing: border-box; /* Inclui padding no tamanho total */
 }
 
 /* Títulos das seções */
@@ -144,10 +183,4 @@
     align-items: center; /* Centraliza verticalmente */
     font-size: 0.8rem; /* Tamanho do texto */
     color: #666; /* Cor do texto */
-}
-
-/* Ícones sociais */
-.footer-socials {
-    display: flex; /* Alinha os ícones horizontalmente */
-    gap: 10px; /* Espaçamento entre os ícones */
 }
